@@ -15,9 +15,9 @@ include 'config.php';
 		$userid = strip_tags($userid);
 		$userid = htmlspecialchars($userid);
 		
-		$password = trim($_POST['password']); //grabs the user password, sql injection cleaning
-		$password = strip_tags($password);
-		$password = $htmlspecialchars($password);
+		$pass = trim($_POST['password']); //grabs the user password, sql injection cleaning
+		$pass = strip_tags($pass);
+		$pass = $htmlspecialchars($pass);
 		
 		if(empty($userid)){
 			$error = true;
@@ -27,4 +27,25 @@ include 'config.php';
 			$useridError = "Please enter a valid User ID.";
 		}
 		
+		if(empty($pass)){
+			$error = true;
+			$passError = "Please enter your password.";
 		}
+		
+		//if no errors, continue
+		if(!$error){
+			$password = hash('sha256', $pass);
+			$res=mysqli_query($conn,"SELECT userid, password FROM users WHERE userid='$userID'");
+				$row = mysqli_fetch_array($res);
+				$count = mysqli_num_rows($res); //if userID and password are correct 1 row should be returned.
+				
+			if( $count == 1 && $row['password']==$password){
+				$_SESSION['user'] = $row['userid'];
+				$_SESSION["loggedin"] = true;
+				header("Location: index.php");
+			}	else{
+				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
+			}
+		}
+	}
+?>
