@@ -1,10 +1,12 @@
-CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+DROP TABLE IF EXISTS User CASCADE;
+CREATE TABLE User (
   `userID` INT(4) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
-  `hash` VARCHAR(40) VIRTUAL COMMENT 'need to hash a password sent into the system into sha-1 format, then check that value to this value. If a password is updated, the hash must be stored. Should salt with a secret key',
+  `hash` VARCHAR(40) NOT NULL DEFAULT '87fc4e805a0db57662fa3cb86a252c41661a8374',
   `f_name` VARCHAR(32) NULL,
   `l_name` VARCHAR(32) NULL,
   `isActive` TINYINT NOT NULL DEFAULT 0,
   `isAdmin` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`userID`),
   UNIQUE INDEX `userID_UNIQUE` (`userID` ASC) VISIBLE)
+);
