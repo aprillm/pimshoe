@@ -17,7 +17,7 @@ CREATE TABLE Product(
 	productSize varchar(2) NOT NULL,
 	productGender char(1) NOT NULL,
 	productColor varchar(255) NOT NULL,
-	productPrice decimal(3,2) DEFAULT 0.00,
+	productPrice decimal(3,2) NOT NULL DEFAULT 0.00,
 	productIsActive tinyint NOT NULL DEFAULT 0,
     Primary Key (upc)
 );
@@ -36,7 +36,7 @@ DROP TABLE IF EXISTS isAvailable CASCADE;
 CREATE TABLE isAvailable (
 	storeID int(2) NOT NULL,
     upc int NOT NULL,
-    qty int(3) NOT NULL DEFAULT 0 CHECK ( qty >= 0),
+    qty int(3) NOT NULL CHECK ( qty >= 0) DEFAULT 0,
     Primary Key (storeID, upc),
     Foreign Key (storeID) REFERENCES Store,
     Foreign Key (upc) REFERENCES Prodcut
