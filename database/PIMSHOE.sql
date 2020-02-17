@@ -7,7 +7,9 @@ CREATE TABLE Store (
     city varchar(15) NOT NULL,
     state char(2) NOT NULL,
     zip int(5) NOT NULL,
-	Primary Key (storeID)
+    userID int(4) NOT NULL,
+	Primary Key (storeID),
+    Foreign Key (userID) REFERENCES User
 );
 
 DROP TABLE IF EXISTS Product CASCADE;
@@ -26,7 +28,7 @@ DROP TABLE IF EXISTS Discount CASCADE;
 CREATE TABLE Discount (
 	storeID int(2) NOT NULL,
     upc int NOT NULL,
-    discountIsActive tinyint Not NULL DEFAULT 0,
+    discountIsActive tinyint NOT NULL DEFAULT 0,
     discountPrice int NULL,
     Primary Key (storeID, upc),
     Foreign Key (storeID) REFERENCES Store,
@@ -37,10 +39,10 @@ DROP TABLE IF EXISTS isAvailable CASCADE;
 CREATE TABLE isAvailable (
 	storeID int(2) NOT NULL,
     upc int NOT NULL,
-    qty int(3) NOT NULL CHECK ( qty >= 0) DEFAULT 0,
+    qty int(3) NOT NULL DEFAULT 0 CHECK ( qty >= 0),
     Primary Key (storeID, upc),
     Foreign Key (storeID) REFERENCES Store,
-    Foreign Key (upc) REFERENCES Prodcut
+    Foreign Key (upc) REFERENCES Product
 );
 
 DROP TABLE IF EXISTS User CASCADE;
@@ -48,10 +50,11 @@ CREATE TABLE User (
   userID INT(4) NOT NULL,
   email VARCHAR(255) NOT NULL,
   passhash VARCHAR(64) NOT NULL DEFAULT 'BA01338BA5FA0C1584A6D41F93FE550B1D715A8DE2DA10D6C673131A85658394',
-  f_name VARCHAR(32) NULL,
-  l_name VARCHAR(32) NULL,
+  f_name VARCHAR(32) NOT NULL,
+  l_name VARCHAR(32) NOT NULL,
   isActive TINYINT NOT NULL DEFAULT 0,
   isAdmin TINYINT NOT NULL DEFAULT 0,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
   PRIMARY KEY (userID)
 );
+
