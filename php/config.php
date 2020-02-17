@@ -1,9 +1,9 @@
 <?php
 	/*DB credentials should be inserted here. */
-	$servername = "servername";
-	$username   = "username";
-	$password   = "password";
-	$dbname     = "cdbname";<br> 
+	$servername = 'servername';
+	$username   = 'username';
+	$password   = 'password';
+	$dbname     = 'dbname';<br> 
 	$conn = mysqli_connect($servername, $username, $password);
 	
 	$dbcon = mysqli_select_db($conn,$dbname);
