@@ -24,7 +24,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
 
     <div class="container text-center mt-5" style="margin-bottom:0">
-      <h2>Welcome <?php echo htmlspecialchars ($_SESSION["f_name"]); ?> to <?php echo html specialchars($_SESSION["store_name"])</h2>
+      <h2>Welcome <?php echo htmlspecialchars($_SESSION["f_name"]); ?> to <?php echo htmlspecialchars($_SESSION["store_name"])</h2>
     </div>
 
     <div class = "container">
@@ -49,7 +49,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       </a>
       </div>
       <div class="col-sm-4">
-             <a href="AdminUpdate.html" class="btn btn-primary btn-block btn-lg p-5">
+             <a href="update.php" class="btn btn-primary btn-block btn-lg p-5">
           Update
         </a>
         </div>
@@ -63,7 +63,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
   </div>
   <div class="container text-center mt-5">
-    <a href="AdminUser.html" class="btn btn-primary">
+    <a href="user.php" class="btn btn-primary">
       User Settings
     </a>
   </div>
