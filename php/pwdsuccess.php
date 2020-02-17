@@ -29,12 +29,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <h4 class="mt-5">Your password has been successfully updated</h4>
     </div>
 
-  </div>
-  <div class="container text-center mt-5">
-    <a href="AdminUser.html" class="btn btn-primary">
-      Back to settings
-    </a>
-  </div>
+	  
+    <div class="container text-center mt-5">
+       <a href="landing.php" class="btn btn-primary">
+        Back to home
+       </a>
+    </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
