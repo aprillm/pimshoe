@@ -43,7 +43,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <div class="col-sm-4">
       </div>
       <div class="col-sm-4">
-             <a href="AdminLogin.html" class="btn btn-primary btn-block btn-lg p-5">
+             <a href="login.php" class="btn btn-primary btn-block btn-lg p-5">//I think php needed here
           Logout
         </a>
         </div>
@@ -52,7 +52,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
   </div>
   <div class="container text-center mt-5">
-    <a href="AdminLanding.html" class="btn btn-primary">
+    <a href="landing.php" class="btn btn-primary">
       Home
     </a>
   </div>
