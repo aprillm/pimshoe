@@ -48,14 +48,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
   </div>
   <div class="container text-center mt-5">
-    <a href="AdminLanding.html" class="btn btn-primary">
+    <a href="landing.php" class="btn btn-primary">
       Back to home
     </a>
   </div>
 
   </div>
   <div class="container text-center mt-5">
-    <a href="AdminUser.html" class="btn btn-primary">
+    <a href="user.php" class="btn btn-primary">
       User Settings
     </a>
   </div>
