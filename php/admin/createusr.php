@@ -1,4 +1,6 @@
 
+<?php session_start();
+
 //is user logged in?
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	header("location: login.php");
@@ -26,7 +28,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
 
 	<div class="container text-center mt-5" style="margin-bottom:0">
-		<form action="usrinsert.php" method="post">
+		<form>
 			<div class="container text-center col-sm-4">
 				<label for="userID">Employee ID</label>
 				<input type="text" class="form-control" maxlength="4" id="userID" pattern="^[0-9]{4}" placeholder="1234" required>
@@ -47,17 +49,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 				</div>
 			</div>
 			</br>
-			<div class="container text-center form-row">
+			<div class="text-center">
 
-				<div class="col custom-control custom-switch">
-				<input type="checkbox" class="custom-control-input" id="customSwitch2" unchecked>
-				<label class="custom-control-label" for="customSwitch2">Activate</label>
+				<div class="custom-control custom-switch mb-2 mr-sm-2">
+				
+				<input type="checkbox" class="custom-control-input" id="isActive">
+				<label class="custom-control-label" for="isActive">Activate</label>
 				</div>
-				<div class="col custom-control custom-switch">
-				<input type="checkbox" class="custom-control-input" id="customSwitch3" unchecked>
-				<label class="custom-control-label" for="customSwitch3">Admin</label>
+			</div>
+			<div class="text-center">
+				<div class="custom-control custom-switch mb-2 mr-sm-2">
+				
+				<input type="checkbox" class="custom-control-input" id="isAdmin">
+				<label class="custom-control-label" for="isAdmin">Admin</label>
 				</div>
-
 			</div>
 		</form>
 	</div>	
