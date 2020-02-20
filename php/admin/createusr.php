@@ -63,10 +63,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 				<label class="custom-control-label" for="isAdmin">Admin</label>
 				</div>
 			</div>
-			  <div class="container text-center mt-5">
-				<a href="#" class="btn btn-primary">
-					Create
-				</a>
+			  <input class="btn btn-primary" type="submit" value="Create">
 			</div>
 		</form>
 	</div>	
