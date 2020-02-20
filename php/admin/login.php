@@ -3,7 +3,7 @@ session_start();
 include 'config.php';
 
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-		header("Location: index.php");
+		header("Location: landing.php");
 		exit;
 	}
 	
@@ -42,7 +42,7 @@ include 'config.php';
 			if( $count == 1 && $row['password']==$password){
 				$_SESSION['user'] = $row['userid'];
 				$_SESSION["loggedin"] = true;
-				header("Location: index.php");
+				header("Location: landing.php");
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
 			}
