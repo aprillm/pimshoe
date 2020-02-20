@@ -28,7 +28,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
 
 	<div class="container text-center mt-5" style="margin-bottom:0">
-		<form>
+		<form action="usrinsert.php" method="post">
 			<div class="container text-center col-sm-4">
 				<label for="userID">Employee ID</label>
 				<input type="text" class="form-control" maxlength="4" id="userID" pattern="^[0-9]{4}" placeholder="1234" required>
