@@ -1,4 +1,3 @@
-
 <?php session_start();
 
 //is user logged in?
@@ -28,7 +27,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
 
 	<div class="container text-center mt-5" style="margin-bottom:0">
-		<form action="usrinsert.php" method="post">
+		<form>
 			<div class="container text-center col-sm-4">
 				<label for="userID">Employee ID</label>
 				<input type="text" class="form-control" maxlength="4" id="userID" pattern="^[0-9]{4}" placeholder="1234" required>
@@ -64,11 +63,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 				<label class="custom-control-label" for="isAdmin">Admin</label>
 				</div>
 			</div>
+			  <div class="container text-center mt-5">
+				<a href="#" class="btn btn-primary">
+					Change User
+				</a>
+			</div>
 		</form>
 	</div>	
 	
   <div class="container text-center mt-5">
-    <a href="AdminCreate.html" class="btn btn-primary">
+    <a href="create.php" class="btn btn-primary">
       Back to Create
     </a>
   </div>
