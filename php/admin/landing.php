@@ -31,12 +31,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <div class="row mt-5">
       <div class="col-sm-3"></div>
       <div class="col-sm-3">
-        <a href="#" class="btn btn-primary btn-block btn-lg p-5">
+        <a href="checkout.php" class="btn btn-primary btn-block btn-lg p-5">
           Check out
       </a>
       </div>
       <div class="col-sm-3">
-             <a href="#" class="btn btn-primary btn-block btn-lg p-5">
+             <a href="checkin.php" class="btn btn-primary btn-block btn-lg p-5">
           Check in
         </a>
         </div>
@@ -44,7 +44,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <div class="row mt-5">
       <div class="col-sm-4">
-        <a href="AdminCreate.html" class="btn btn-primary btn-block btn-lg p-5">
+        <a href="create.php" class="btn btn-primary btn-block btn-lg p-5">
           Create
       </a>
       </div>
@@ -54,7 +54,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </a>
         </div>
         <div class="col-sm-4">
-            <a href="#" class="btn btn-primary btn-block btn-lg p-5">
+            <a href="discount.php" class="btn btn-primary btn-block btn-lg p-5">
           Discount Manager
           </a>
           </div>
