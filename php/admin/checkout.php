@@ -25,28 +25,39 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container text-center mt-5" style="margin-bottom:0">
       <h2>Check Out</h2>
     </div>
+	<form>
+	<div class="container text-center mt-5 col-sm-2" style="margin-bottom:0">
+		<div class="form-group">
+			<label for="enterupc">Enter the Product UPC</label>
+			<input type="text" class="form-control" maxlength="12" id="enterupc" pattern="^[0-9]{12}" placeholder="123456789012">
+		</div>
+	</div>
+	</form>
 	<div class="container text-center mt-5" style="margin-bottom:0">
+		<form>
 		<table class="table">
 			<tr>
-				<th>Item UPC</th>
+				<th>UPC</th>
 				<th>Style</th>
 				<th>Color</th>
 				<th>Size</th>
-				<th>Remove from Check Out<br></th>
+				<th>Quanitiy</th>
 			</tr>
 			<tr>
 				<td>123456789012</td>
 				<td>Captain</td>
 				<td>Blue</td>
 				<td>39</td>
-				<td><div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-					<label class="custom-control-label" for="defaultUnchecked"></label>
-					</div>
+				<td>
+					<label for="quantity"></label>
+					<input type="number" id="quantity" name="quantity" min="0" max="99" value="1">
 				</td>
 			</tr>
 		</table>
+		<input type="submit" class="btn btn-primary" value="submit">
+		</form>
 	</div>	
+	
   <div class="container text-center mt-5">
     <a href="landing.php" class="btn btn-primary">
       Back to home
