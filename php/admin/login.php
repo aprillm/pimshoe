@@ -22,7 +22,7 @@ include 'config.php';
 		if(empty($userid)){
 			$error = true;
 			$useridError = "Please enter your User ID.";
-		}	else if (!fliter_var($userid, FILTER_VALIDATE_INT)){
+		}	else if (!filter_var($userid, FILTER_VALIDATE_INT)){
 			$error = true;
 			$useridError = "Please enter a valid User ID.";
 		}
@@ -54,12 +54,14 @@ include 'config.php';
 <!doctype html>
 <html lang="en">
   <head>
+	<title>PIMSHOE Login</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	
   </head>
 
   <body>
@@ -86,26 +88,40 @@ include 'config.php';
           <div class="form-group">
             <label for="store"></label>
               <select class="form-control" id="store">
-                  <option>Select Store</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
+                  <option value="">Select Store</option>
+                  <?php
+				  $select="cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+				  if(isset($select)&&select!=""){
+					$select=$_POST['NEW'];
+					}
+					?>
+					<?php
+						$list=mysql_query("select * from store order by storeID asc");
+						while($row_list=mysql_fetch_assoc($list){
+						?>
+						<option value="<?php echo $row_list['storeID'];?>
+						<?php if($row_list['storeID']==$select){echo "selected";}?>
+						<?php echo $row_list['storeID']; ?>
+						</option>
+						<?php
+						}
+						?>
              </select>
           </div>
 <hr>
     	    <div class="form-group">
-                 <input type="text" name="user_name" class="form-control" id="logname" placeholder="Email or login" type="email">
+                 <input type="text" name="user_name" class="form-control" maxlength="4" pattern="^[0-9]{4}" id="logname" placeholder="User ID">
           </div>
           <div class="form-group">
-    	            <input type="password" name="user_pass" class="form-control" id="logname" placeholder="*********" type="password">
+    	            <input type="password" name="user_pass" class="form-control" id="logname" placeholder="*********">
 	       </div>
 
     	    <div class="form-group">
           	<button type="submit" class="btn btn-primary btn-block bg-primary"> Login  </button>
     	    </div>
+			</form>
           <!--<a href="" class="float-right btn btn-outline-primary">Sign up</a> Admins insert new users, maybe have it go to a form that sends a request email to an admin?-->
     	    <p class="underlineHover"><a href="#">Forgot password?</a></p>
-        </form>
       </div>
     </aside>
   </div>
