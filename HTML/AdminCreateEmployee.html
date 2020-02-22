@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>AdminCreateEmployee</title>
+	  <title> Create User </title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
@@ -19,60 +19,50 @@
       <h2>Create Employee</h2>
     </div>
 
-    <div class = "container text-center">
+	<div class="container text-center mt-5" style="margin-bottom:0">
+		<form>
+			<div class="container text-center col-sm-4">
+				<label for="userID">Employee ID</label>
+				<input type="text" class="form-control" maxlength="4" id="userID" pattern="^[0-9]{4}" placeholder="1234" required>
+			</div>
+			<br>
+			<div class="container text-center form-row">
+				<div class="col">
+					<label for="f_Name">First Name</label>
+					<input type="text" class="form-control" maxlength="32" id="f_Name" placeholder="John" required>
+				</div>
+				<div class="col">
+					<label for="l_Name">Last Name</label>
+					<input type="text" class="form-control" maxlength="32" id="l_Name" placeholder="Doe" required>
+				</div>
+				<div class="col">
+					<label for="email">Email</label>
+					<input type="email" class="form-control" id="email" placeholder="jdoe@pimshoe.com" required>
+				</div>
+			</div>
+			
+			 class="text-center">
 
-      <p class = "mt-5">Employee ID</p>
-      <div class="row">
-      <div class="col-sm-4"></div>
-      <div class="col-sm-4">
-        <input type="tel" name="phone" class="form-control" id="phone">
-      </div>
-      <div class="col-sm-4"></div>
-      </div>
-
-
-      <div class="row mt-5">
-      <div class="col-sm-4">
-        First Name
-      </div>
-      <div class="col-sm-4">
-        Last Name
-      </div>
-      <div class="col-sm-4">
-        Email
-      </div>
-      </div>
-
-      <div class="row mt-1">
-      <div class="col-sm-4">
-        <input type="text" name="fName" class="form-control" id="fName">
-      </div>
-      <div class="col-sm-4">
-        <input type="text" name="lName" class="form-control" id="lName">
-      </div>
-      <div class="col-sm-4">
-        <input type="email" name="empEmail" class="form-control" id="empEmail">
-      </div>
-    </div>
-
-      <div class="row mt-3">
-      <div class="col-sm-4"></div>
-      <div class="col-sm-2 custom-control custom-switch">
-           <input type="checkbox" class="custom-control-input" id="customSwitch2" unchecked>
-           <label class="custom-control-label" for="customSwitch2">Activate</label>
-      </div>
-      <div class="col-sm-2 custom-control custom-switch">
-           <input type="checkbox" class="custom-control-input" id="customSwitch3" unchecked>
-           <label class="custom-control-label" for="customSwitch3">Admin</label>
-      </div>
-      </div>
+				<div class="custom-control custom-switch mb-2 mr-sm-2">
+				
+				<input type="checkbox" class="custom-control-input" id="isActive">
+				<label class="custom-control-label" for="isActive">Activate</label>
+				</div>
+			</div>
+			<div class="text-center">
+				<div class="custom-control custom-switch mb-2 mr-sm-2">
+				
+				<input type="checkbox" class="custom-control-input" id="isAdmin">
+				<label class="custom-control-label" for="isAdmin">Admin</label>
+				</div>
+			</div>
+			  <input class="btn btn-primary" type="submit" value="Create">
+			</div>
+		</form>
+	
+	
   <div class="container text-center mt-5">
-    <a href="#" class="btn btn-primary">
-      Create
-    </a>
-  </div>
-  <div class="container text-center mt-5">
-    <a href="AdminCreate.html" class="btn btn-primary">
+    <a href="create.php" class="btn btn-primary">
       Back to Create
     </a>
   </div>
