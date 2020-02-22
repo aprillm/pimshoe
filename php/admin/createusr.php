@@ -19,55 +19,49 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   </head>
 
   <body>
-    <div class="container-fluid jumbotron text-center bg-primary text-white" style="margin-bottom:0">
-      <h1>PIMSHOE Admin</h1>
-    </div>
+		<div class="container-fluid jumbotron text-center bg-primary text-white" style="margin-bottom:0">
+			<h1>PIMSHOE Admin</h1>
+		</div>
 
-    <div class="container text-center mt-5" style="margin-bottom:0">
-      <h2>Create Employee</h2>
-    </div>
-
-	<div class="container text-center mt-5" style="margin-bottom:0">
+		<div class="container text-center mt-5" style="margin-bottom:0">
+			<h2>Create Employee</h2>
+		</div>
 		<form>
-			<div class="container text-center col-sm-4">
-				<label for="userID">Employee ID</label>
-				<input type="text" class="form-control" maxlength="4" id="userID" pattern="^[0-9]{4}" placeholder="1234" required>
-			</div>
-			<br>
-			<div class="container text-center form-row">
-				<div class="col">
-					<label for="f_Name">First Name</label>
-					<input type="text" class="form-control" maxlength="32" id="f_Name" placeholder="John" required>
+			<div class="container text-center mt-5" style="margin-bottom:0">
+				<div class="container text-center col-sm-4">
+					<label for="userID">Employee ID</label>
+					<input type="text" class="form-control" maxlength="4" id="userID" pattern="^[0-9]{4}" title="Employee IDs are 4 digit numbers." placeholder="1234" required>
 				</div>
-				<div class="col">
-					<label for="l_Name">Last Name</label>
-					<input type="text" class="form-control" maxlength="32" id="l_Name" placeholder="Doe" required>
+				<br>
+				<div class="container text-center form-row">
+					<div class="col">
+						<label for="f_Name">First Name</label>
+						<input type="text" class="form-control" maxlength="32" id="f_Name" placeholder="John" pattern="[^0-9]*" title="First name cannot contain numbers" required>
+					</div>
+					<div class="col">
+						<label for="l_Name">Last Name</label>
+						<input type="text" class="form-control" maxlength="32" id="l_Name" placeholder="Doe" pattern="[^0-9]*" title="Last name cannot contain numbers" required>
+					</div>
+					<div class="col">
+						<label for="email">Email</label>
+						<input type="email" class="form-control" id="email" placeholder="jdoe@pimshoe.com" title="email address for the employee" required>
+					</div>
 				</div>
-				<div class="col">
-					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" placeholder="jdoe@pimshoe.com" required>
-				</div>
-			</div>
-			</br>
-			<div class="text-center">
-
 				<div class="custom-control custom-switch mb-2 mr-sm-2">
-				
-				<input type="checkbox" class="custom-control-input" id="isActive">
-				<label class="custom-control-label" for="isActive">Activate</label>
+					<input type="checkbox" class="custom-control-input" id="isActive">
+					<label class="custom-control-label" for="isActive">Activate</label>
 				</div>
 			</div>
 			<div class="text-center">
 				<div class="custom-control custom-switch mb-2 mr-sm-2">
-				
-				<input type="checkbox" class="custom-control-input" id="isAdmin">
-				<label class="custom-control-label" for="isAdmin">Admin</label>
+					<input type="checkbox" class="custom-control-input" id="isAdmin">
+					<label class="custom-control-label" for="isAdmin">Admin</label>
 				</div>
 			</div>
-			  <input class="btn btn-primary" type="submit" value="Create">
+			<div class ="text-center">
+				<input class="btn btn-primary" type="submit" value="Create">
 			</div>
 		</form>
-	</div>	
 	
   <div class="container text-center mt-5">
     <a href="create.php" class="btn btn-primary">
