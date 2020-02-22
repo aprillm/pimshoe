@@ -6,6 +6,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	exit;
 }
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
