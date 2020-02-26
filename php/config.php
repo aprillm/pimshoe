@@ -13,6 +13,6 @@
 	}
  
 	if ( !$dbcon ) {
-		die("Database Connection failed : " . mysql_error());
+		die("Database Connection failed : " . mysqli_error());
 	}
 ?>
