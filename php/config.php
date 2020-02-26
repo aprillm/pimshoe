@@ -1,18 +1,8 @@
+
 <?php
-	/*DB credentials should be inserted here. */
-	$servername = "52.204.100.89";
-	$username   = "administrator";
-	$password   = "youdiedpimshoe";
-	$dbname     = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
-	$conn = mysqli_connect($dbname, $username, $password);
-	
-	$dbcon = mysqli_select_db($conn,$dbname);
-	// Check connection
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
- 
-	if ( !$dbcon ) {
-		die("Database Connection failed : " . mysqli_error());
-	}
+   define('DB_SERVER', 'localhost:3036');
+   define('DB_USERNAME', 'root');
+   define('DB_PASSWORD', 'rootpassword');
+   define('DB_DATABASE', 'database');
+   $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 ?>
