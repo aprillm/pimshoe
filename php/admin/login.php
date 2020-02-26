@@ -11,6 +11,8 @@ include 'config.php';
 	$error = false;
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['btn-login'])){
+		$storeid = $_POST['store'];//grabs store someone is logging in to
+		
 		$userid = trim($_POST['userid']); //grabs user ID, sql injection cleaning
 		$userid = strip_tags($userid);
 		$userid = htmlspecialchars($userid);
@@ -18,6 +20,13 @@ include 'config.php';
 		$pass = trim($_POST['password']); //grabs the user password, sql injection cleaning
 		$pass = strip_tags($pass);
 		$pass = $htmlspecialchars($pass);
+		
+		$time = $_SERVER['REQUEST_TIME'];
+		
+		if(empty($storeid)){
+			$error = true;
+			$storeError = "Please select a store.";
+		}
 		
 		if(empty($userid)){
 			$error = true;
@@ -40,8 +49,7 @@ include 'config.php';
 				$count = mysqli_num_rows($res); //if userID and password are correct 1 row should be returned.
 				
 			if( $count == 1 && $row['password']==$password){
-				$_SESSION['user'] = $row['userid'];
-				$_SESSION["loggedin"] = true;
+				$sql = "INSERT INTO Session(userID, storeID, timestamp) VALUES($userID', '$storeID', '$time')";
 				header("Location: landing.php");
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
@@ -68,12 +76,13 @@ include 'config.php';
     <div class="container-fluid jumbotron text-center bg-primary text-white" style="margin-bottom:0">
       <h1>PIMSHOE Admin</h1>
     </div>
-	<?php if(isset($useridError) || isset($errMSG) || isset($passError)) { ?>
+	<?php if(isset($useridError) || isset($errMSG) ||isset($storeError) || isset($passError)) { ?>
               <div role="alert" class="alert  alert-danger  text-center">
             <?php 
               if(isset($useridError)) { echo $Error; }  
               if(isset($passError)) { echo $passError; }
               if(isset($errMSG)) { echo $errMSG; } 
+			  if (isset($storeError)) { echo $storeError; }
             ?>
           </div>
       <?php } ?>
@@ -110,10 +119,10 @@ include 'config.php';
           </div>
 <hr>
     	    <div class="form-group">
-                 <input type="text" name="user_name" class="form-control" maxlength="4" pattern="^[0-9]{4}" id="logname" placeholder="User ID">
+                 <input type="text" name="user_name" class="form-control" maxlength="4" pattern="^[0-9]{4}" id="userID" placeholder="User ID">
           </div>
           <div class="form-group">
-    	            <input type="password" name="user_pass" class="form-control" id="logname" placeholder="*********">
+    	            <input type="password" name="user_pass" class="form-control" id="password" placeholder="*********">
 	       </div>
 
     	    <div class="form-group">
