@@ -44,7 +44,7 @@ include 'config.php';
 		//if no errors, continue
 		if(!$error){
 			$password = hash('sha256', $pass);
-			$res=mysqli_query($conn,"SELECT userid, password FROM users WHERE userid='$userID'");
+			$res=mysqli_query($conn,"SELECT userid, password FROM User WHERE userid='$userID'");
 				$row = mysqli_fetch_array($res);
 				$count = mysqli_num_rows($res); //if userID and password are correct 1 row should be returned.
 				
