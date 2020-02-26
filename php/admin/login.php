@@ -97,7 +97,7 @@ include 'config.php';
 					?>
 					<?php
 						$list=mysql_query("select * from store order by storeID asc");
-						while($row_list=mysql_fetch_assoc($list){
+						while($row_list=mysql_fetch_assoc($list)){
 						?>
 						<option value="<?php echo $row_list['storeID'];?>
 						<?php if($row_list['storeID']==$select){echo "selected";}?>
