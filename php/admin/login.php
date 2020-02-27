@@ -131,7 +131,7 @@ include 'config.php';
 	       </div>
 
     	    <div class="form-group">
-          	<button id="btn-login" type="submit" class="btn btn-primary btn-block bg-primary"> Login  </button>
+          	<button id="btn-login" name="btn-login" type="submit" class="btn btn-primary btn-block bg-primary"> Login  </button>
     	    </div>
 			</form>
           <!--<a href="" class="float-right btn btn-outline-primary">Sign up</a> Admins insert new users, maybe have it go to a form that sends a request email to an admin?-->
