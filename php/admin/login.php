@@ -47,8 +47,13 @@ include 'config.php';
 			$res=mysqli_query($conn,"SELECT userid, password FROM User WHERE userid='$userID'");
 				$row = mysqli_fetch_array($res);
 				$count = mysqli_num_rows($res); //if userID and password are correct 1 row should be returned.
+			$sres=mysqli_query($conn,"SELECT storeID FROM Store WHERE storeID='$storeID'");
+				$srow = mysqli_fetch_array($sres);
 				
 			if( $count == 1 && $row['password']==$password){
+				$_SESSION['user'] = $row['userID'];
+				$_SESSION['store'] = $srow['storeID'];
+				$_SESSION["loggedin"] = true;
 				$sql = "INSERT INTO Session(userID, storeID, timestamp) VALUES($userID', '$storeID', '$time')";
 				header("Location: landing.php");
 			}	else{
