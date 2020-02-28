@@ -110,7 +110,7 @@ include 'config.php';
 					}
 					?>
 					<?php
-						$list=mysqli_query("select * from store order by storeID asc");
+						$list=mysqli_query($select,"select * from Store order by storeID asc");
 						while($row_list=mysqli_fetch_assoc($list)){
 						?>
 						<option value="<?php echo $row_list['storeID'];?>
