@@ -104,7 +104,7 @@ include 'config.php';
               <select class="form-control" id="store">
                   <option value="">Select Store</option>
                   <?php
-				  $select="cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+				  $select=mysqli_connect("cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com", "administrator", "youdiedpimshoe", "PIMSHOE");
 				  if(isset($select)&&$select!=""){
 					$select=$_POST['NEW'];
 					}
