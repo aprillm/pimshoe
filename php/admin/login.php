@@ -100,25 +100,16 @@ include 'config.php';
     	<form id="loginform" class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
           <div class="form-group">
             <label for="store"></label>
-              <select class="form-control" id="store">
-                  <option value="">Select Store</option>
                   <?php
-				  $select=mysqli_connect("cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com", "administrator", "youdiedpimshoe", "PIMSHOE");
-				  if(isset($select)&&$select!=""){
-					$select=$_POST['NEW'];
+					echo '<select class="form-control" id="store">
+					<option>Select Store</option>';
+					$sqli = "SELECT StoreID FROM Store";
+					$result = mysqli_query($conn, $sqli);
+					while($row = mysqli_fetch_array($result)){
+						echo '<option>'.$row['StoreID'].'</option>';
 					}
-					?>
-					<?php
-						$list=mysqli_query($select,"select * from Store order by storeID asc");
-						while($row_list=mysqli_fetch_assoc($list)){
-						?>
-						<option value="<?php echo $row_list['storeID'];?>
-						<?php if($row_list['storeID']==$select){echo "selected";}?>
-						<?php echo $row_list['storeID']; ?>
-						</option>
-						<?php
-						}
-						?>
+					echo '</select>';
+				  ?>
              </select>
           </div>
 <hr>
