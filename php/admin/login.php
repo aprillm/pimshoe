@@ -54,7 +54,6 @@ include 'config.php';
 				$_SESSION['user'] = $row['userID'];
 				$_SESSION['store'] = $srow['storeID'];
 				$_SESSION["loggedin"] = true;
-				$sql = "INSERT INTO Session(userID, storeID, timestamp) VALUES($userID', '$storeID', '$time')";
 				header("Location: landing.php");
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
