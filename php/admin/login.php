@@ -21,8 +21,6 @@ include 'config.php';
 		$pass = strip_tags($pass);
 		$pass = $htmlspecialchars($pass);
 		
-		$time = $_SERVER['REQUEST_TIME'];
-		
 		if(empty($storeid)){
 			$error = true;
 			$storeError = "Please select a store.";
