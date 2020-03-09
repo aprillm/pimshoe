@@ -24,7 +24,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div>
 
     <div class="container text-center mt-5" style="margin-bottom:0">
-      <h2>Welcome <?php echo htmlspecialchars($_SESSION["f_name"]); ?> to <?php echo htmlspecialchars($_SESSION["store_name"])</h2>
+	<?php
+		include config.php;
+		$name = "SELECT f_name from user where userID ='".mysqli_real_escape_string($_SESSION['user']['userID'])."'";
+		$storename = "SELECT storeName from store where storeID ='".mysqli_real_escape_string($_SESSION['store']['storeID'])."'";
+	?>
+      <h2>Welcome <?php echo htmlspecialchars($name); ?> to <?php echo htmlspecialchars($storename)?></h2>
     </div>
 
     <div class = "container">
