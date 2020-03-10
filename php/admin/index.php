@@ -97,7 +97,7 @@ include 'config.php';
     	<h2 class="text-center mb-4 mt-1">Sign in</h2>
 
 
-    	<form id="loginform" class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+    	<form id="loginform" class="form-horizontal" role="form" method="post">
           <div class="form-group">
             <label for="store"></label>
                   <?php
