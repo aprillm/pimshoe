@@ -2,7 +2,7 @@
 
 //is user logged in?
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-	header("location: http://52.204.100.89/login.php");
+	header("location: http://52.204.100.89/index.php");
 	exit;
 }
 ?>
