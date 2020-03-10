@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <title> Keyword Search </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <div class="container-fluid jumbotron text-center bg-danger text-white" style="margin-bottom:0">
+      <h1>PIMSHOE Search</h1>
+    </div>
+
+    <div class="container text-center mt-5">
+        <form action="#" method="get" id="keysearch">
+
+        <h1>Results for <!--<?-->php echo $_GET["Keyword that is searched"]; ?></h1>
+
+        <div class="row mt-5">
+
+<!--while($arrayvalue = mysql_fetch_array($result))
+{
+    print_r($arrayvalue);
+}-->
+
+
+          <div class="col-sm-4"> <!--Insert php repeat for as long as there are results-->
+            <h2><!--<?-->php echo $_GET["Product Name"]; ?></h2>
+            <p><!--<?-->php echo $_GET["Product Brand"]; ?></p>
+            <p><!--<?-->php echo $_GET["Product Gender"]; ?></p>
+            <p><!--<?-->php echo $_GET["Product Size"]; ?></p>
+            <p><!--<?-->php echo $_GET["Product Color"]; ?></p>
+            <button type="submit" class="btn btn-danger" form="keysearch" value="Search">Check Availability</button> <!--Go to UPC Availability result for this product-->
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+		<div class="container text-center mt-5">
+			<a href="keysearch.html" class="btn btn-danger">
+				Back
+			</a>
+		</div>
+    <div class="container text-center mt-2">
+      <a href="SearchHome.html" class="btn btn-danger">
+        Home
+      </a>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
