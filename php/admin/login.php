@@ -3,7 +3,7 @@ session_start();
 include 'config.php';
 
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-		header("Location: landing.php");
+		header("Location: http://3.211.215.236/landing.php");
 		exit;
 	}
 	
@@ -54,7 +54,7 @@ include 'config.php';
 				$_SESSION['user'] = $row['userID'];
 				$_SESSION['store'] = $srow['storeID'];
 				$_SESSION["loggedin"] = true;
-				header("Location: landing.php");
+				header("Location: /landing.php");
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
 			}
