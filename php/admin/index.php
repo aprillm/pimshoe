@@ -96,7 +96,7 @@ include 'config.php';
     	<h2 class="text-center mb-4 mt-1">Sign in</h2>
 
 
-    	<form id="loginform" class="form-horizontal" role="form" method="post" action="" accept-charset='UTF-8'>
+    	<form id="loginform" class="form-horizontal" role="form" method="post" action="/landing.php" accept-charset='UTF-8'>
           <div class="form-group">
             <label for="store"></label>
                   <?php
