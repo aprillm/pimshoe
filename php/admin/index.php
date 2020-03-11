@@ -1,11 +1,9 @@
 <?php
 session_start();
 include 'config.php';
-ob_start();
 
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-		header("Location: http://52.204.100.89/landing.php", true, 301);
-		die();
+		exit(header("Location: http://52.204.100.89/landing.php", true, 301));
 	}
 	
 	require_once 'config.php';
@@ -53,8 +51,7 @@ ob_start();
 				$_SESSION['user'] = $row['userID'];
 				$_SESSION['store'] = $srow['storeID'];
 				$_SESSION["loggedin"] = true;
-				header("Location: http://52.204.100.89/landing.php", true, 301);
-				die();
+				exit(header("Location: http://52.204.100.89/landing.php", true, 301));
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
 			}
