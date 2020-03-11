@@ -2,14 +2,15 @@
 session_start();
 include 'config.php';
 
-	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-		exit(header("Location: http://52.204.100.89/landing.php", true, 301));
+	if(isset($_SESSION['user'])!="" && isset($_SESSION['store'])!=""){
+		header('Location: http://52.204.100.89/landing.php');
+		exit();
 	}
 	
-	require_once 'config.php';
 	$error = false;
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['btn-login'])){
+		
 		$storeid = $_POST['store'];//grabs store someone is logging in to
 		
 		$userid = trim($_POST['userid']); //grabs user ID, sql injection cleaning
@@ -18,7 +19,7 @@ include 'config.php';
 		
 		$pass = trim($_POST['password']); //grabs the user password, sql injection cleaning
 		$pass = strip_tags($pass);
-		$pass = $htmlspecialchars($pass);
+		$pass = htmlspecialchars($pass);
 		
 		if(empty($storeid)){
 			$error = true;
@@ -41,17 +42,18 @@ include 'config.php';
 		//if no errors, continue
 		if(!$error){
 			$password = hash('sha256', $pass);
-			$res=mysqli_query($conn,"SELECT userid, password FROM User WHERE userid='$userID'");
+			$res=mysqli_query($conn,"SELECT userid, passhash FROM User WHERE userid='$userid'");
 				$row = mysqli_fetch_array($res);
 				$count = mysqli_num_rows($res); //if userID and password are correct 1 row should be returned.
-			$sres=mysqli_query($conn,"SELECT storeID FROM Store WHERE storeID='$storeID'");
+			$sres=mysqli_query($conn,"SELECT storeID FROM Store WHERE storeID='$storeid'");
 				$srow = mysqli_fetch_array($sres);
 				
 			if( $count == 1 && $row['password']==$password){
 				$_SESSION['user'] = $row['userID'];
 				$_SESSION['store'] = $srow['storeID'];
 				$_SESSION["loggedin"] = true;
-				exit(header("Location: http://52.204.100.89/landing.php", true, 301));
+				header('Location: http://52.204.100.89/landing.php');
+				exit();
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
 			}
@@ -88,24 +90,24 @@ include 'config.php';
           </div>
       <?php } ?>
     <div class="row mt-5">
-    <aside class="col-sm-4">
-    </aside>
-    <aside class="col-sm-4">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
     	<h2 class="text-center mb-4 mt-1">Sign in</h2>
 
 
-    	<form id="loginform" class="form-horizontal" role="form" method="post" action="landing.php" accept-charset='UTF-8'>
+    	<form id="loginform" class="form-horizontal" role="form" method="post" action="" accept-charset='UTF-8'>
           <div class="form-group">
             <label for="store"></label>
                   <?php
-					echo '<select class="form-control" id="store">
-					<option>Select Store</option>';
+					echo('<select class="form-control" id="store">
+					<option>Select Store</option>');
 					$sqli = "SELECT StoreID FROM Store";
 					$result = mysqli_query($conn, $sqli);
 					while($row = mysqli_fetch_array($result)){
-						echo '<option>'.$row['StoreID'].'</option>';
+						echo('<option>'.$row['StoreID'].'</option>');
 					}
-					echo '</select>';
+					echo('</select>');
 				  ?>
              </select>
           </div>
@@ -124,7 +126,7 @@ include 'config.php';
           <!--<a href="" class="float-right btn btn-outline-primary">Sign up</a> Admins insert new users, maybe have it go to a form that sends a request email to an admin?-->
     	    <p class="underlineHover"><a href="#">Forgot password?</a></p>
       </div>
-    </aside>
+    </div>
   </div>
 
     <!-- Optional JavaScript -->
