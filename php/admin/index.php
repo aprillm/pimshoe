@@ -3,8 +3,8 @@ session_start();
 include 'config.php';
 
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-		header("Location: http://52.204.100.89/landing.php");
-		exit();
+		header("Location: http://52.204.100.89/landing.php", true, 301);
+		die();
 	}
 	
 	require_once 'config.php';
@@ -54,8 +54,8 @@ include 'config.php';
 				$_SESSION['user'] = $row['userID'];
 				$_SESSION['store'] = $srow['storeID'];
 				$_SESSION["loggedin"] = true;
-				header("Location: http://52.204.100.89/landing.php");
-				exit();
+				header("Location: http://52.204.100.89/landing.php", true, 301);
+				die();
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
 			}
@@ -98,7 +98,7 @@ include 'config.php';
     	<h2 class="text-center mb-4 mt-1">Sign in</h2>
 
 
-    	<form id="loginform" class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+    	<form id="loginform" class="form-horizontal" role="form" method="post" action="" accept-charset='UTF-8'>
           <div class="form-group">
             <label for="store"></label>
                   <?php
