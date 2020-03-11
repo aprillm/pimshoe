@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'config.php';
+ob_start();
 
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 		header("Location: http://52.204.100.89/landing.php", true, 301);
