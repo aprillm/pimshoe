@@ -17,8 +17,8 @@ echo "<table border='1'>
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
-echo "<td>" . $row['FirstName'] . "</td>";
-echo "<td>" . $row['LastName'] . "</td>";
+echo "<td>" . $row['userID'] . "</td>";
+echo "<td>" . $row['email'] . "</td>";
 echo "</tr>";
 }
 echo "</table>";
