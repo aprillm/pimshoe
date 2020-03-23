@@ -18,7 +18,7 @@ $username = $_POST['uname'];
 $password = sha1($_POST['psw']);
 
 
-$query = mysqli_query($mysqli,"SELECT userID FROM user WHERE email = '$username' AND passhash = '$password'");
+$query = mysqli_query($mysqli,"SELECT userID FROM user WHERE userID = '$username' AND passhash = '$password'");
 $total = mysqli_num_rows($query);
 
 if($total > 0)
