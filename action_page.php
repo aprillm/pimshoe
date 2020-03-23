@@ -19,15 +19,14 @@ $password = sha1($_POST['psw']);
 
 
 $query = mysqli_query($mysqli,"SELECT userID FROM user WHERE userID = '$username' AND passhash = '$password' AND isAdmin");
-$total = $query->num_rows();
+$total = mysqli_num_rows($query);
 
 if($total > 0)
 {
   header('Location: AdminLanding.html');
 }
 else {
-  echo "$query";
-  //header('Location: badlogin.html');
+  header('Location: badlogin.html');
 }
 
 ?>
