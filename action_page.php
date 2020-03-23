@@ -27,6 +27,8 @@ if($total > 0)
 }
 else {
   echo "Unsuccessful Login";
+  echo "$password";
+  echo "$username";
 }
 
 ?>
