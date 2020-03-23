@@ -19,7 +19,7 @@ $password = sha1($_POST['psw']);
 
 
 $query = mysqli_query($mysqli,"SELECT userID FROM user WHERE userID = '$username' AND passhash = '$password' AND isAdmin");
-$total = mysqli_num_rows($query);
+$total = $query->num_rows();
 
 if($total > 0)
 {
