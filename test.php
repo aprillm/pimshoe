@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("example.com","peter","abc123","my_db");
+$con=mysqli_connect("cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com","administrator","youdiedpimshoe","PIMSHOE");
 // Check connection
 if (mysqli_connect_errno())
 {
