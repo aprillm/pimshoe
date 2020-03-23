@@ -1,7 +1,7 @@
 <?php
 	include 'config.php';
 	
-	$output = ''
+	$output = '';
 	if(isset($_POST['search'])){
 		$searchq = $_POST['search'];
 		$searchq = preg_replace("#[0-9]#","",$searchq);
@@ -9,7 +9,7 @@
 		$query = mysqli_query("SELECT * FROM product WHERE upc='$searchq'") or die("he's dead jim");
 		$count = mysqli_num_rows($query);
 		if($count == 1){
-			$row = mysqli_fetch_array($query))
+			$row = mysqli_fetch_array($query);
 			$upc = $row['upc'];
 			$pname = $row['productName'];
 			$pbrand = $row['productBrand'];
@@ -24,7 +24,7 @@
 				$output = 'There were no active search results';
 			}
 		} else{
-			$output = 'There were no search results'
+			$output = 'There were no search results';
 		}
 	}
 ?>
