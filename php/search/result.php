@@ -1,3 +1,24 @@
+<?php
+	include 'config.php';
+	
+	if(isset($_POST['search'])){
+		$searchq = $_POST['search'];
+		
+		$query = mysqli_query($conn, "SELECT * FROM Product WHERE upc='$searchq'") or die("error:" . mysqli_connect_error());
+		$count = mysqli_num_rows($query);
+		if($count == 1){
+			$row = mysqli_fetch_array($query);
+			$upc = $row['upc'];
+			$productName = $row['productName'];
+			$productBrand = $row['productBrand'];
+			$productSize= $row['productSize'];
+			$productGender = $row['productGender'];
+			$productColor = $row['productColor'];
+			$productPrice = $row['productPrice'];
+			$productIsActive = $row['productIsActive'];
+		}
+	}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,21 +36,31 @@
     <div class="container-fluid jumbotron text-center bg-danger text-white" style="margin-bottom:0">
       <h1>PIMSHOE Search</h1>
     </div>
-
+<!--if product is not active, show "product <upc> not available," otherwise-->
     <div class="container text-center mt-5">
       <form>
-          <h1>Product_Name</h1>
-          <h2 class="mt-5">Product_UPC</h2>
+          <h1><?php echo $productName ?></h1>
+          <h2 class="mt-5"><?php echo $upc ?></h2>
           <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-2">
-              <p>Product_Price</p>
+              <p><?php echo $productPrice ?></p>
             </div>
-            <div class="col-sm-2">
-              <p>is_Discounted</p>
+            <div class="col-sm-2"><!--if discount exists, mark out price, show discount-->
+              <p><b>is_Discounted</b></p>
             </div>
           </div>
-
+		  <?php
+			$shoe = '';
+			if($productGender == 'M'){
+				$shoe = 'mens';
+			} if($productGender == 'F'){
+				$shoe = 'womens';
+			} if($productGender == 'K'){
+				$shoe = 'kids';
+			}
+		  ?>
+				<p>This <?php echo $productBrand?> <?php echo $productName ?> is a <?php echo $shoe ?> shoe size <?php echo $productSize ?> in <?php echo $productColor ?>. <br>If for some reason your shoe is not right we will accept returns or exchanges for 14 days after initial purchase.</p>
             <div class="row mt-5">
               <div class="col-sm-4"></div>
               <div class="col-sm-2">
@@ -55,15 +86,15 @@
     </div>
 
 		<div class="container text-center mt-5">
-			<a href="keysearch.html" class="btn btn-danger">
+			<a href="search.php" class="btn btn-danger">
 				Back
 			</a>
 		</div>
-    <div class="container text-center mt-2">
+    <!--<div class="container text-center mt-2">
       <a href="SearchHome.html" class="btn btn-danger">
         Home
       </a>
-    </div>
+    </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
