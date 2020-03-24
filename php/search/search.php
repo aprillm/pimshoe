@@ -1,33 +1,4 @@
-<?php
-	include 'config.php';
-	
-	$output = '';
-	if(isset($_POST['search'])){
-		$searchq = $_POST['search'];
-		$searchq = preg_replace("#[0-9]#","",$searchq);
-		
-		$query = mysqli_query("SELECT * FROM product WHERE upc='$searchq'") or die("he's dead jim");
-		$count = mysqli_num_rows($query);
-		if($count == 1){
-			$row = mysqli_fetch_array($query);
-			$upc = $row['upc'];
-			$pname = $row['productName'];
-			$pbrand = $row['productBrand'];
-			$psize = $row['productSize'];
-			$pgender = $row['productGender'];
-			$pcolor = $row['productColor'];
-			$pprice = $row['productPrice'];
-			$pactive = $row['productIsActive'];
-			
-			$output .= '<div> '.$upc.' '.$pname.' '.$pbrand.' '.$psize.' '.$pgender.' '.$pcolor.' '.$pprice.' </div>';
-			if($pactive == 0){
-				$output = 'There were no active search results';
-			}
-		} else{
-			$output = 'There were no search results';
-		}
-	}
-?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -47,14 +18,12 @@
 		</div>
 		
 		<div class="container text-center mt-5 col-md-4">
-			<form action="results.php" method="post" id="upcsearch">
+			<form action="result.php" method="post" id="upcsearch">
 				<input type="text" name="search" class="form-control" placeholder="Insert UPC here" maxlength="12" pattern="^[0-9]{12}">
 				<br>
 				<input type="submit" class ="btn btn-danger" form="upcsearch" value="Search">
 			</form>
-			<?php
-				print("$output");
-			?>
+
 		</div>
 
     <!-- Optional JavaScript -->
