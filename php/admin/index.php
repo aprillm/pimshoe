@@ -3,7 +3,7 @@ session_start();
 include 'config.php';
 
 	if(isset($_SESSION['user'])!="" && isset($_SESSION['store'])!=""){
-		header('Location: http://52.204.100.89/landing.php');
+		header('Location: http://3.211.215.236/landing.php');
 		exit();
 	}
 	
@@ -42,7 +42,7 @@ include 'config.php';
 		//if no errors, continue
 		if(!$error){
 			$password = hash('sha256', $pass);
-			$res=mysqli_query($conn,"SELECT userid, passhash FROM User WHERE userid='$userid'");
+			$res=mysqli_query($conn,"SELECT userid, passhash FROM User WHERE userID='$userid'");
 				$row = mysqli_fetch_array($res);
 				$count = mysqli_num_rows($res); //if userID and password are correct 1 row should be returned.
 			$sres=mysqli_query($conn,"SELECT storeID FROM Store WHERE storeID='$storeid'");
