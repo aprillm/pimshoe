@@ -4,7 +4,7 @@
 	if(isset($_POST['search'])){
 		$searchq = $_POST['search'];
 		
-		$query = mysqli_query($conn, "SELECT * FROM Product WHERE upc='$searchq'") or die("error:" . mysqli_connect_error());
+		$query = mysqli_query($conn, "SELECT * FROM Product WHERE upc='$searchq'");
 		$count = mysqli_num_rows($query);
 		if($count == 1){
 			$row = mysqli_fetch_array($query);
@@ -18,6 +18,7 @@
 			$productIsActive = $row['productIsActive'];
 		}
 	}
+	
 ?>
 <!doctype html>
 <html lang="en">
@@ -40,16 +41,31 @@
     <div class="container text-center mt-5">
       <form>
           <h1><?php echo $productName ?></h1>
-          <h2 class="mt-5"><?php echo $upc ?></h2>
+          <h5><?php echo $upc ?></h5>
           <div class="row">
             <div class="col-sm-4"></div>
-            <div class="col-sm-2">
-              <p><?php echo $productPrice ?></p>
+            <div class="col-sm-4">
+			<?php //oh it's going to be that page isn't it
+			$dquery = mysqli_query($conn, "SELECT * FROM Discount WHERE upc='$upc'");
+			$drow = mysqli_fetch_array($dquery);
+			$dcount = mysqli_num_rows($dquery);
+			if($dcount == 1){
+				$active = $drow['discountIsActive'];
+				$discout = $drow['discountPrice'];
+				if($active == true){
+					echo('
+						<p><b>'.$discount.'</b></p>
+					');
+				} else {
+					echo('<p>'.$productPrice.'</p>');
+				}
+			}else{
+				echo('<p>'.$productPrice.'</p>');
+			}
+			?>
             </div>
-            <div class="col-sm-2"><!--if discount exists, mark out price, show discount-->
-              <p><b>is_Discounted</b></p>
-            </div>
-          </div>
+        </div>
+		  <div class"text-center">
 		  <?php
 			$shoe = '';
 			if($productGender == 'M'){
@@ -61,29 +77,28 @@
 			}
 		  ?>
 				<p>This <?php echo $productBrand?> <?php echo $productName ?> is a <?php echo $shoe ?> shoe size <?php echo $productSize ?> in <?php echo $productColor ?>. <br>If for some reason your shoe is not right we will accept returns or exchanges for 14 days after initial purchase.</p>
-            <div class="row mt-5">
-              <div class="col-sm-4"></div>
-              <div class="col-sm-2">
-                <p>Store1_city</p>
-              </div>
-              <div class="col-sm-2">
-                <p>is_inStock</p>
-              </div>
-            </div>
-              <p>Store_Phone_Number</p>
-
-              <div class="row mt-5">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2">
-                  <p>Store2_city</p>
-                </div>
-                <div class="col-sm-2">
-                  <p>is_inStock</p>
-                </div>
-              </div>
-                <p>Store_Phone_Number</p>
-      </form>
-    </div>
+			</div>
+			<div class="mt-4"><hr width=80%></div>
+			<h3>Store Availability</h3>
+			<?php //honestly this code was complete hell to write so if it works it works. I'm sorry it's so disgusting.
+				$qquery = "SELECT quantityAvailable.qty, Store.storeName, Store.telephone, Store.streetAddress, Store.city, Store.state, Store.zip 
+							FROM quantityAvailable 
+							INNER JOIN Store ON Store.StoreID = quantityAvailable.StoreID 
+							WHERE quantityAvailable.upc ='$upc'";
+				$qresult = mysqli_query($conn, $qquery);
+				while($res = mysqli_fetch_array($qresult)){
+					echo('
+							<p><b>'.$res['storeName'].'</b><br>
+							Quantity available: '.$res['qty'].'<br>
+							'.$res['streetAddress'].'<br>
+							'.$res['city'].'<br>
+							'.$res['state'].'<br>
+							'.$res['zip'].'<br>
+							<a href="tel:'.$res['telephone'].'">'.$res['telephone'].'</a></p>
+							<hr width=15%>
+							');
+				}
+			?>
 
 		<div class="container text-center mt-5">
 			<a href="search.php" class="btn btn-danger">
