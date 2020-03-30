@@ -11,13 +11,13 @@ include 'config.php';
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST['btn-login'])){
 		
-		$storeid = $_POST['store'];//grabs store someone is logging in to
+		$storeid = $_POST['Store'];//grabs store someone is logging in to
 		
-		$userid = trim($_POST['userid']); //grabs user ID, sql injection cleaning
+		$userid = trim($_POST['userID']); //grabs user ID, sql injection cleaning
 		$userid = strip_tags($userid);
 		$userid = htmlspecialchars($userid);
 		
-		$pass = trim($_POST['password']); //grabs the user password, sql injection cleaning
+		$pass = trim($_POST['passhash']); //grabs the user password, sql injection cleaning
 		$pass = strip_tags($pass);
 		$pass = htmlspecialchars($pass);
 		
@@ -42,7 +42,7 @@ include 'config.php';
 		//if no errors, continue
 		if(!$error){
 			$password = hash('sha1', $pass);
-			$res=mysqli_query($conn,"SELECT userid, passhash FROM User WHERE userID='$userid'");
+			$res=mysqli_query($conn,"SELECT userID, passhash FROM User WHERE userID='$userid'");
 				$row = mysqli_fetch_array($res);
 				$count = mysqli_num_rows($res); //if userID and password are correct 1 row should be returned.
 			$sres=mysqli_query($conn,"SELECT storeID FROM Store WHERE storeID='$storeid'");
