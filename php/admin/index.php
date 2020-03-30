@@ -52,7 +52,7 @@ include 'config.php';
 				$_SESSION['user'] = $row['userID'];
 				$_SESSION['store'] = $srow['storeID'];
 				$_SESSION["loggedin"] = true;
-				header('Location: http://52.204.100.89/landing.php');
+				header('Location: http://http://3.211.215.236//landing.php');
 				exit();
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
