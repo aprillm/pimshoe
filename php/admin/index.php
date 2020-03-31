@@ -48,11 +48,11 @@ include 'config.php';
 			$sres=mysqli_query($conn,"SELECT storeID FROM Store WHERE storeID='$storeid'");
 				$srow = mysqli_fetch_array($sres);
 				
-			if( $count == 1 && $row['password']==$password){
+			if( $count == 1 && $row['passhash']==$password){
 				$_SESSION['user'] = $row['userID'];
 				$_SESSION['store'] = $srow['storeID'];
 				$_SESSION["loggedin"] = true;
-				header('Location: http://http://3.211.215.236//landing.php');
+				header('Location: http://http://3.211.215.236/landing.php');
 				exit();
 			}	else{
 				$errMSG = "The userID or Password you entered was incorrect. Please try again.";
