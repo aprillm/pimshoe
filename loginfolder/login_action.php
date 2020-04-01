@@ -24,7 +24,8 @@ $total = mysqli_num_rows($query);
 
 if($total > 0)
 {
-  header('Location: AdminLanding.html');
+  $_SESSION["username"] = $_POST['uname'];
+  header('Location: AdminLanding.php');
 }
 else {
   header('Location: badlogin.php');
