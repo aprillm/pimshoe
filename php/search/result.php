@@ -102,8 +102,14 @@
 
 		<div class="container text-center mt-5">
 			<a href="search.php" class="btn btn-danger">
-				Back
-			</a>
+				Start a new search
+			</a><p></p>
+			<a href="catalog.php" class="btn btn-danger">
+				Browse the catalog
+			</a><p></p>
+			<a href="index.php" class="btn btn-danger">
+				Home
+			</a><p></p>
 		</div>
     <!--<div class="container text-center mt-2">
       <a href="SearchHome.html" class="btn btn-danger">
