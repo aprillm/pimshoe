@@ -4,36 +4,32 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
-
   <body>
     <div class="container-fluid jumbotron text-center bg-danger text-white" style="margin-bottom:0">
       <h1>PIMSHOE</h1>
     </div>
-
-    <h3 class="text-sm-center">Welcome to the PIMSHOE Guest Homepage! </h3>
-
-
+	<div class="container mt-5 text-center">
+    <h3 class="text-sm-center">Welcome to the PIMSHOE Homepage! </h3>
+	<p>To search for a product you already know the UPC for, click search. If you're not sure of the UPC or just browsing, go to Catalog. To learn more about this project, click about. If you'd like to contact us about a specific product or a question you have, click Contact us.</p>
+	</div>
     <div class = "container">
       <div class="row mt-5">
       <div class="col-sm-4">
       </div>
       <div class="col-sm-4">
-             <a href="search.php" class="btn btn-danger btn-block btn-lg p-5">
+             <a href="search.php" class="btn btn-danger btn-block">
           Search
         </a>
         </div>
       </div>
-
-
       <div class="row mt-5">
       <div class="col-sm-4">
       </div>
       <div class="col-sm-4">
-             <a href="catalog.php" class="btn btn-danger btn-block btn-lg p-5">
+             <a href="catalog.php" class="btn btn-danger btn-block">
           Catalog
         </a>
         </div>
@@ -42,7 +38,7 @@
       <div class="col-sm-4">
       </div>
       <div class="col-sm-4">
-             <a href="about.php" class="btn btn-danger btn-block btn-lg p-5">
+             <a href="about.php" class="btn btn-danger btn-block">
           About
         </a>
         </div>
@@ -51,18 +47,14 @@
       <div class="col-sm-4">
       </div>
       <div class="col-sm-4">
-             <a href="contact.php" class="btn btn-danger btn-block btn-lg p-5">
+             <a href="contact.php" class="btn btn-danger btn-block">
           Contact
         </a>
         </div>
       </div>
-
-
     </div>
-
   </div>
   
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
