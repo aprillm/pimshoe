@@ -10,10 +10,10 @@
   <body>
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "pwdpwd";
-$dbname = "pimshoe";
+$servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+$username = "administrator";
+$password = "youdiedpimshoe";
+$dbname = "PIMSHOE";
 
 
 // Create connection
@@ -36,7 +36,7 @@ if( empty($_POST['AdminCheck'])){
 }
 
 
-$sql = "INSERT INTO user (userID, email, passhash, f_name, l_name, isActive, isAdmin, created_at) VALUES ('$UserID', '$Email', '$Password', '$Fname', '$Lname', '1', '$Admin', '2020-02-23 11:27:04')";
+$sql = "INSERT INTO User (userID, email, passhash, f_name, l_name, isActive, isAdmin, created_at) VALUES ('$UserID', '$Email', '$Password', '$Fname', '$Lname', '1', '$Admin', '2020-02-23 11:27:04')";
 
 
 if (mysqli_query($conn, $sql)) {
