@@ -30,7 +30,7 @@ include_once 'dbconn.php';
               <option value="">UPC</option>
                   <?php
 
-                    $sql = "SELECT * FROM product";
+                    $sql = "SELECT * FROM Product";
                     $result = mysqli_query($conn, $sql);
                     $datas = array();
 
