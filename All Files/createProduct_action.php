@@ -10,10 +10,10 @@
   <body>
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "pwdpwd";
-$dbname = "pimshoe";
+$servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+$username = "administrator";
+$password = "youdiedpimshoe";
+$dbname = "PIMSHOE";
 
 
 // Create connection
@@ -31,7 +31,7 @@ $Gender = $_POST['gender'];
 $Color = $_POST['color'];
 $Price = $_POST['price'];
 
-$sql = "INSERT INTO product (upc, productName, productBrand, productSize, productGender, productColor, productPrice, productIsActive) VALUES ('$UPC', '$Name', '$Brand', '$Size', '$Gender', '$Color', '$Price', '1')";
+$sql = "INSERT INTO Product (upc, productName, productBrand, productSize, productGender, productColor, productPrice, productIsActive) VALUES ('$UPC', '$Name', '$Brand', '$Size', '$Gender', '$Color', '$Price', '1')";
 
 
 if (mysqli_query($conn, $sql)) {
