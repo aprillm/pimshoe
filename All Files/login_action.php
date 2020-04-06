@@ -1,9 +1,9 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "pwdpwd";
-$dbname = "pimshoe";
+$servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+$username = "administrator";
+$password = "youdiedpimshoe";
+$dbname = "PIMSHOE";
 
 
 // Create connection
@@ -18,7 +18,7 @@ $username = $_POST['uname'];
 $password = sha1($_POST['psw']);
 
 
-$query = mysqli_query($mysqli,"SELECT userID FROM user WHERE userID = '$username' AND passhash = '$password' AND isAdmin");
+$query = mysqli_query($mysqli,"SELECT userID FROM User WHERE userID = '$username' AND passhash = '$password' AND isAdmin");
 $total = mysqli_num_rows($query);
 
 
