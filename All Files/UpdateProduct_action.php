@@ -10,10 +10,10 @@
   <body>
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "pwdpwd";
-$dbname = "pimshoe";
+$servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+$username = "administrator";
+$password = "youdiedpimshoe";
+$dbname = "PIMSHOE";
 
 
 // Create connection
@@ -31,7 +31,7 @@ $Name = $_POST['editname'];
 $Color = $_POST['editcolor'];
 $Price = $_POST['editprice'];
 $Active = $_POST['active'];
-$sql = "UPDATE product SET productName='$Name', productBrand='$Brand', productSize='$Size', productGender='$Gender', productColor='$Color', productPrice='$Price', productisActive='$Active' WHERE upc ='$UPC'";
+$sql = "UPDATE Product SET productName='$Name', productBrand='$Brand', productSize='$Size', productGender='$Gender', productColor='$Color', productPrice='$Price', productisActive='$Active' WHERE upc ='$UPC'";
 
 if (mysqli_query($conn, $sql)) {
     ?>
