@@ -26,7 +26,7 @@ include_once 'dbconn.php';
       <h3 class="text-center">Store ID for <?php echo ucwords($_SESSION["storeName"]);?> <br>
         <?php
         $storeName=ucwords($_SESSION["storeName"]);
-        $query =mysqli_query($conn,"SELECT storeID from store where storeName= '$storeName'");
+        $query =mysqli_query($conn,"SELECT storeID from Store where storeName= '$storeName'");
         while($row = mysqli_fetch_array($query)) {
           $storeID = $row['storeID'];
           $_SESSION["thestoreID"] =$row['storeID'];
@@ -38,7 +38,7 @@ include_once 'dbconn.php';
       <div class="col-sm-4">
         <label for="inputId">Store Name</label>
         <input type="text" name="editname" class="form-control" id="inputId" value ="<?php
-        $sql = "SELECT storeName FROM store WHERE storeID='$storeID'";
+        $sql = "SELECT storeName FROM Store WHERE storeID='$storeID'";
 
         $query =mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($query)) {
@@ -49,7 +49,7 @@ include_once 'dbconn.php';
       <div class="form-group col-sm-4">
         <label for="inputPhone">Phone</label>
         <input type="tel" name="editphone" class="form-control" id="inputPhone" value="<?php
-        $sql = "SELECT telephone FROM store WHERE storeID='$storeID'";
+        $sql = "SELECT telephone FROM Store WHERE storeID='$storeID'";
 
         $query =mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($query)) {
@@ -64,7 +64,7 @@ include_once 'dbconn.php';
       <div class="col-sm-4">
         <label for="inputStreet">Street</label>
         <input type="text" name="editstreet" class="form-control" id="inputStreet" value = "<?php
-        $sql = "SELECT streetAddress FROM store WHERE storeID='$storeID'";
+        $sql = "SELECT streetAddress FROM Store WHERE storeID='$storeID'";
 
         $query =mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($query)) {
@@ -76,7 +76,7 @@ include_once 'dbconn.php';
       <div class="col-sm-4">
         <label for="inputCity">City</label>
         <input type="text" name="editcity" class="form-control" id="inputCity" value="<?php
-        $sql = "SELECT city FROM store WHERE storeID='$storeID'";
+        $sql = "SELECT city FROM Store WHERE storeID='$storeID'";
 
         $query =mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($query)) {
@@ -143,7 +143,7 @@ include_once 'dbconn.php';
             <option selected>
               <?php
               $upc = $_SESSION["upc"];
-              $sql = "SELECT state FROM store WHERE storeID='$storeID'";
+              $sql = "SELECT state FROM Store WHERE storeID='$storeID'";
 
               $query =mysqli_query($conn,$sql);
               while($row = mysqli_fetch_array($query)) {
@@ -156,7 +156,7 @@ include_once 'dbconn.php';
       <div class="col-sm-2">
         <label for="inputZip">Zipcode</label>
         <input type="text" name="editzip" class="form-control" id="inputZip" value="<?php
-        $sql = "SELECT zip FROM store WHERE storeID='$storeID'";
+        $sql = "SELECT zip FROM Store WHERE storeID='$storeID'";
 
         $query =mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($query)) {
