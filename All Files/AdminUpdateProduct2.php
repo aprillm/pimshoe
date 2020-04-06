@@ -35,11 +35,11 @@ include_once 'dbconn.php';
               <option selected>
                 <?php
                 $upc = $_SESSION["upc"];
-                $sql = "SELECT productisActive FROM product WHERE upc='$upc'";
+                $sql = "SELECT productIsActive FROM Product WHERE upc='$upc'";
 
                 $query =mysqli_query($conn,$sql);
                 while($row = mysqli_fetch_array($query)) {
-                  echo $row['productisActive'];
+                  echo $row['productIsActive'];
                 }
                 ?>
               </option>
@@ -52,7 +52,7 @@ include_once 'dbconn.php';
           <input type="text" name="editbrand" class="form-control" id="inputBrand" value=
           <?php
           $upc = $_SESSION["upc"];
-          $sql = "SELECT productBrand FROM product WHERE upc='$upc'";
+          $sql = "SELECT productBrand FROM Product WHERE upc='$upc'";
 
           $query =mysqli_query($conn,$sql);
           while($row = mysqli_fetch_array($query)) {
@@ -66,7 +66,7 @@ include_once 'dbconn.php';
           <input type="text" name="editsize" class="form-control" id="inputSize" value=
           <?php
           $upc = $_SESSION["upc"];
-          $sql = "SELECT productSize FROM product WHERE upc='$upc'";
+          $sql = "SELECT productSize FROM Product WHERE upc='$upc'";
 
           $query =mysqli_query($conn,$sql);
           while($row = mysqli_fetch_array($query)) {
@@ -85,7 +85,7 @@ include_once 'dbconn.php';
               <option selected>
                 <?php
                 $upc = $_SESSION["upc"];
-                $sql = "SELECT productGender FROM product WHERE upc='$upc'";
+                $sql = "SELECT productGender FROM Product WHERE upc='$upc'";
 
                 $query =mysqli_query($conn,$sql);
                 while($row = mysqli_fetch_array($query)) {
@@ -103,7 +103,7 @@ include_once 'dbconn.php';
             <input type="text" name="editname" class="form-control" id="inputName" value=
             <?php
             $upc = $_SESSION["upc"];
-            $sql = "SELECT productName FROM product WHERE upc='$upc'";
+            $sql = "SELECT productName FROM Product WHERE upc='$upc'";
 
             $query =mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($query)) {
@@ -117,7 +117,7 @@ include_once 'dbconn.php';
             <input type="text" name="editcolor" class="form-control" id="inputColor" value=
             <?php
             $upc = $_SESSION["upc"];
-            $sql = "SELECT productColor FROM product WHERE upc='$upc'";
+            $sql = "SELECT productColor FROM Product WHERE upc='$upc'";
 
             $query =mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($query)) {
@@ -131,7 +131,7 @@ include_once 'dbconn.php';
             <input type="text" name="editprice" class="form-control" id="inputPrice" value=
             <?php
             $upc = $_SESSION["upc"];
-            $sql = "SELECT productPrice FROM product WHERE upc='$upc'";
+            $sql = "SELECT productPrice FROM Product WHERE upc='$upc'";
 
             $query =mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($query)) {
