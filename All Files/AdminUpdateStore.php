@@ -30,7 +30,7 @@ include_once 'dbconn.php';
               <option value="">Store</option>
                   <?php
 
-                    $sql = "SELECT * FROM store";
+                    $sql = "SELECT * FROM Store";
                     $result = mysqli_query($conn, $sql);
                     $datas = array();
 
