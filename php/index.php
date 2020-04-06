@@ -16,7 +16,7 @@
      <h1>PIMSHOE</h1>
 	</div>
 	<div class="container text-center mt-5 col-md-4">
-			<a href="webhome.php" class="btn btn-success" role="button">I'm searching something!</a>
+			<a href="home.php" class="btn btn-success" role="button">I'm searching something!</a>
 			<p></p>
 			<a href="login.php" class="btn btn-success" role="button">I'm an Admin!</a>
 	</div>
