@@ -5,6 +5,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	header("location: login.php");
 	exit;
 }
+include 'config.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,17 +26,28 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container text-center mt-5" style="margin-bottom:0">
       <h2>Check In</h2>
     </div>
-	<form>
-	<div class="container text-center mt-5 col-sm-2" style="margin-bottom:0">
-		<div class="form-group">
+	<form action="checkin.php" method="post">
+	<div class="container text-center mt-5 col-sm-2" style="margin-bottom:0" >
 			<label for="enterupc">Enter the Product UPC</label>
-			<input type="text" class="form-control" maxlength="12" id="enterupc" pattern="^[0-9]{12}" placeholder="123456789012">
-		</div>
+			<input type="text" class="form-control" maxlength="12" id="enterupc" pattern="^[0-9]{12}" placeholder="123456789012" />
+			<input type="submit" class="btn btn-primary" value=">" form="in" value="CheckIn" />
 	</div>
 	</form>
+	<?php
+
+	if(isset($_POST['CheckIn'])){
+		$upc = $_POST['upc'];
+		$storeID = $_SESSION['store'];
+		$qty = 1;
+		if($upc != ''||$storeID !=''){
+			$query = mysqli_query($conn, "INSERT INTO Cart_in(storeID, UPC, qty) VALUES ('$upc', '$storeID', '$qty')");
+		}
+	}
+	?>
 	<div class="container text-center mt-5" style="margin-bottom:0">
-		<form>
+		<form action="submittedin.php" method="post">
 		<table class="table">
+		<thead>
 			<tr>
 				<th>UPC</th>
 				<th>Style</th>
@@ -43,16 +55,27 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 				<th>Size</th>
 				<th>Quanitiy</th>
 			</tr>
-			<tr>
-				<td>123456789012</td>
-				<td>Captain</td>
-				<td>Blue</td>
-				<td>39</td>
-				<td>
-					<label for="quantity"></label>
-					<input type="number" id="quantity" name="quantity" min="0" max="99" value="1">
-				</td>
-			</tr>
+			</thead>
+			<?php
+				$sql = "SELECT Cart_in.UPC, Cart_in.qty, Product.productName, Product.productColor, Product.productSize
+					FROM Cart_in
+					INNER JOIN Product ON Product.upc = Cart_in.UPC
+					WHERE Cart_in.StoreID = '$storeID'";
+				$result = mysqli_query($conn, $sql);
+				while($row = mysqli_fetch_array($result)){
+					echo('
+						<tr><td>'.$row['UPC'].'</td>
+						<td>'.$row['productName'].'</td>
+						<td>'.$row['productColor'].'</td>
+						<td>'.$row['productSize'].'</td>
+						<td>
+						<label for="quantity"></label>
+						<input type="number" id="quantity" name="quantity" min="0" max="99" value="1">
+						</td>
+						</tr>
+					');
+				}
+			?>
 		</table>
 		<input type="submit" class="btn btn-primary" value="submit">
 		</form>
