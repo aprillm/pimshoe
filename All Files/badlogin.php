@@ -29,34 +29,6 @@
     <small id="emailHelp" class="form-text text-muted">This login only works for Admins</small>
 
   <form class="form-horizontal" method="post" action="login_action.php">
-      <select class = "form-control" name ="store" required>
-          <option value="">Select Store</option>
-            <?php
-
-              $sql = "SELECT * FROM store";
-              $result = mysqli_query($conn, $sql);
-              $datas = array();
-
-              if (mysqli_num_rows($result) > 0){
-                while($row = mysqli_fetch_assoc($result)){
-                  $datas[] = $row;
-                }
-              }
-
-              $storeArray = array();
-              foreach ($datas as $data){
-                array_push($storeArray,$data['storeName']);
-              }
-
-              foreach($storeArray as $item){
-              ?>
-              <option value="<?php echo strtolower($item); ?>"><?php echo $item; ?></option>
-              <?php
-              }
-              ?>
-      </select>
-      <br>
-
      <div class="form-group">
      <label for="inputEmail" class="font-weight-bold">Username</label>
      <input type="text" name="uname" class="form-control" id="inputEmail" placeholder="Enter username" required>
