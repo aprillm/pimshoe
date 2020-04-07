@@ -28,7 +28,7 @@ include_once 'dbconn.php';
       <div class="col-sm-2"></div>
       <div class="col-sm-4">
         <label for="inputId">Store Id</label>
-        <input type="text" name="id" class="form-control" id="inputId" required>
+        <input type="number" min="1" max="10" name="id" class="form-control" id="inputId" required>
       </div>
       <div class="form-group col-sm-4">
         <label for="inputPhone">Phone</label>
@@ -104,7 +104,7 @@ include_once 'dbconn.php';
       </div>
       <div class="col-sm-2">
         <label for="inputZip">Zipcode</label>
-        <input type="text" name="zip" class="form-control" id="inputZip" required>
+        <input type="number" min="10000" max="99999" name="zip" class="form-control" id="inputZip" required>
       </div>
       </div>
       </div>
