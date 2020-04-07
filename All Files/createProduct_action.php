@@ -31,8 +31,12 @@ $Gender = $_POST['gender'];
 $Color = $_POST['color'];
 $Price = $_POST['price'];
 
-$sql = "INSERT INTO Product (upc, productName, productBrand, productSize, productGender, productColor, productPrice, productIsActive) VALUES ('$UPC', '$Name', '$Brand', '$Size', '$Gender', '$Color', '$Price', '1')";
-
+if( empty($_POST['ActiveCheck'])){
+  $Active = '0';
+} else{
+  $Active = '1';
+}
+$sql = "INSERT INTO Product (upc, productName, productBrand, productSize, productGender, productColor, productPrice, productIsActive) VALUES ('$UPC', '$Name', '$Brand', '$Size', '$Gender', '$Color', '$Price', '$Active')";
 
 if (mysqli_query($conn, $sql)) {
     ?>
