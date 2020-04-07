@@ -40,7 +40,7 @@ include_once 'dbconn.php';
       </a>
       </div>
       <div class="col-sm-3">
-             <a href="#" class="btn btn-primary btn-block btn-lg p-5">
+             <a href="checkin.php" class="btn btn-primary btn-block btn-lg p-5">
           Check in
         </a>
         </div>
