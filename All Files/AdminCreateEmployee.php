@@ -28,7 +28,7 @@ include_once 'dbconn.php';
         <div class="col-sm-2"></div>
         <div class="form-group col-sm-4">
           <label for="inputEmpID">Employee ID</label>
-          <input type="number" min="1111" max="9999" name="empid" class="form-control" id="inputEmpID" required>
+          <input type="text" maxlength="4" pattern="^[0-9]{4}" oninvalid="setCustomValidity('Employee ID must be 4 digits')" onchange="try{setCustomValidity('')}catch(e){}" name="empid" class="form-control" id="inputEmpID" required>
         </div>
         <div class="form-group col-sm-4">
           <label for="inputEmpPass">Employee Password</label>
