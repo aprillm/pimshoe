@@ -31,7 +31,7 @@ $State = $_POST['editstate'];
 $Zip = $_POST['editzip'];
 $Store = $_POST['editname'];
 
-$sql = "UPDATE Store SET storeName='$Store', telephone='$Phone', streetAddress='$Street', city='$Zip', state='$State', zip='$Zip' WHERE storeID='$StoreID'";
+$sql = "UPDATE Store SET storeName='$Store', telephone='$Phone', streetAddress='$Street', city='$City', state='$State', zip='$Zip' WHERE storeID='$StoreID'";
 
 if (mysqli_query($conn, $sql)) {
     ?>
