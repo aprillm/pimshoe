@@ -28,7 +28,7 @@ include_once 'dbconn.php';
         <div class="col-sm-2"></div>
         <div class="form-group col-sm-4">
           <label for="inputEmpID">Employee ID</label>
-          <input type="text" name="empid" class="form-control" id="inputEmpID" required>
+          <input type="number" min="1111" max="9999" name="empid" class="form-control" id="inputEmpID" required>
         </div>
         <div class="form-group col-sm-4">
           <label for="inputEmpPass">Employee Password</label>
@@ -46,7 +46,7 @@ include_once 'dbconn.php';
       </div>
       <div class="col-sm-4">
         <label for="inputEmpEmail">Email</label>
-        <input type="text" name="empmail" class="form-control" id="inputEmpEmail" required>
+        <input type="email" name="empmail" class="form-control" id="inputEmpEmail" required>
       </div>
       </div>
 
