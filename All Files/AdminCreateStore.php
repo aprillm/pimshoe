@@ -104,7 +104,7 @@ include_once 'dbconn.php';
       </div>
       <div class="col-sm-2">
         <label for="inputZip">Zipcode</label>
-        <input type="number" min="10000" max="99999" name="zip" class="form-control" id="inputZip" required>
+        <input type="text" maxlength="5" pattern="^[0-9]{5}" oninvalid="setCustomValidity('Zipcode must be 5 digits')" onchange="try{setCustomValidity('')}catch(e){}" name="zip" class="form-control" id="inputZip" required>
       </div>
       </div>
       </div>
