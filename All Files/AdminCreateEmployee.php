@@ -32,7 +32,7 @@ include_once 'dbconn.php';
         </div>
         <div class="form-group col-sm-4">
           <label for="inputEmpPass">Employee Password</label>
-          <input type="text" name="emppassword" class="form-control" id="inputEmpPass" required>
+          <input type="text" name="emppassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="setCustomValidity('Must contain at least one number | one uppercase and lowercase letter | be at least 8 or more characters')" onchange="try{setCustomValidity('')}catch(e){}" class="form-control" id="inputEmpPass" required>
         </div>
       </div>
       <div class="row mt-5">
