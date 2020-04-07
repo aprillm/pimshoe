@@ -67,7 +67,7 @@ include_once 'dbconn.php';
 
         <div class="custom-control custom-switch mt-3">
              <input type="checkbox" class="custom-control-input" id="customSwitch1" unchecked>
-             <label class="custom-control-label" for="customSwitch1">Activity</label>
+             <label class="custom-control-label" name="ActiveCheck" for="customSwitch1">Make Active</label>
         </div>
     </div>
 
