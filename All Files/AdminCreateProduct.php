@@ -38,7 +38,7 @@ include_once 'dbconn.php';
       <div class="col-sm-1"></div>
       <div class="col-sm-2">
         <label for="inputSize">Size</label>
-        <input type="text" name="size" class="form-control" id="inputSize" required>
+        <input type="number" name="size" class="form-control" id="inputSize" required>
       </div>
       <div class="col-sm-1">
         <label for="inputGender">Gender</label>
@@ -61,7 +61,7 @@ include_once 'dbconn.php';
         </div>
         <div class="col-sm-4">
           <label for="inputPrice">Price</label>
-          <input type="text" name="price" class="form-control" id="inputPrice" required>
+          <input type="number" name="price" class="form-control" id="inputPrice" required>
         </div>
         </div>
 
