@@ -61,7 +61,7 @@ include_once 'dbconn.php';
         </div>
         <div class="col-sm-4">
           <label for="inputPrice">Price</label>
-          <input type="number" name="price" class="form-control" id="inputPrice" required>
+          <input type="number" min="0" name="price" class="form-control" id="inputPrice" required>
         </div>
         </div>
 
