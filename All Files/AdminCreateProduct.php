@@ -28,7 +28,7 @@ include_once 'dbconn.php';
 
       <div class="form-group col-sm-4">
         <label for="inputUPC">UPC</label>
-        <input type="number" min="100000000000" max="999999999999" name="upc" class="form-control" id="inputUPC" required>
+          <input type="text" name="search"  maxlength="12" minlength="12" pattern="^[0-9]{12}" oninvalid="setCustomValidity('UPC must be only numbers and 12 digits')" onchange="try{setCustomValidity('')}catch(e){}" name="upc" class="form-control" id="inputUPC" required>
       </div>
 
       <div class="col-sm-4">
