@@ -28,7 +28,7 @@ include_once 'dbconn.php';
 
       <div class="form-group col-sm-4">
         <label for="inputUPC">UPC</label>
-        <input type="text" minlength="12" maxlength="12" name="upc" class="form-control" id="inputUPC" required>
+        <input type="number" min="100000000000" max="999999999999" name="upc" class="form-control" id="inputUPC" required>
       </div>
 
       <div class="col-sm-4">
