@@ -37,7 +37,7 @@
 
      <div class="form-group">
      <label for="inputPass" class="font-weight-bold">Password</label>
-     <input type="text" name="psw" class="form-control" id="inputPass" placeholder="Enter password" required>
+     <input type="password" name="psw" class="form-control" id="inputPass" placeholder="Enter password" required>
      </div>
 
      <button id="btn-login" name="btn-login" type="submit" class="btn btn-primary btn-block bg-primary">Login</button>
