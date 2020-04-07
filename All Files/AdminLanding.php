@@ -22,7 +22,7 @@ include_once 'dbconn.php';
       <h2>Welcome
         <?php
         $userID= $_SESSION["username"];
-        $query =mysqli_query($conn,"SELECT f_name from user where userID=$userID");
+        $query =mysqli_query($conn,"SELECT f_name from User where userID=$userID");
         while($row = mysqli_fetch_array($query)) {
           echo $row['f_name'];
         }
