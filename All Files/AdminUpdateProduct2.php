@@ -26,27 +26,7 @@ include_once 'dbconn.php';
       <div class = "form-group container text-center">
         <h3 class="text-center"><?php echo $_SESSION["upc"];?></h3>
         <div class="row mt-5">
-        <div class="form-group col-sm-4">
-          <label for="activity">Active</label>
-          <select class="form-control" name="active" id="editActivity" required>
-              <option value='1'>Yes</option>
-              <option value='0'>No</option>
-              <option disabled="disabled">----</option>
-              <option selected>
-                <?php
-                $upc = $_SESSION["upc"];
-                $sql = "SELECT productIsActive FROM Product WHERE upc='$upc'";
-
-                $query =mysqli_query($conn,$sql);
-                while($row = mysqli_fetch_array($query)) {
-                  echo $row['productIsActive'];
-                }
-                ?>
-              </option>
-         </select>
-
-        </div>
-
+        <div class="col-sm-2"></div>
         <div class="col-sm-4">
           <label for="inputBrand">Brand</label>
           <input type="text" name="editbrand" class="form-control" id="inputBrand" value=
@@ -60,7 +40,6 @@ include_once 'dbconn.php';
           }
           ?> required>
         </div>
-        <div class="col-sm-1"></div>
         <div class="col-sm-2">
           <label for="inputSize">Size</label>
           <input type="text" name="editsize" class="form-control" id="inputSize" value=
@@ -143,9 +122,29 @@ include_once 'dbconn.php';
 
           </div>
 
-          <div class="custom-control custom-switch mt-3">
-               <input type="checkbox" class="custom-control-input" id="customSwitch1" unchecked>
-               <label class="custom-control-label" for="customSwitch1">Activity</label>
+            <div class="custom-control custom-switch mt-3">
+            <input type="checkbox" name="active" class="custom-control-input" id="customSwitch1"
+            <?php
+            $upc = $_SESSION["upc"];
+            $sql = "SELECT productIsActive FROM Product WHERE upc='$upc'";
+
+            $query =mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($query)) {
+              $isActive = $row['productIsActive'];
+            }
+            if($isActive){
+              ?>
+              checked
+           <?php
+            }
+            else{
+             ?>
+             unchecked
+             <?php
+            }
+            ?>
+            >
+            <label class="custom-control-label" for="customSwitch1">Active</label>
           </div>
       </div>
 
