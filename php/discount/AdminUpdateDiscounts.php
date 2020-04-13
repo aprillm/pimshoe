@@ -31,7 +31,7 @@ include_once 'dbconn.php';
                   <option value="">Discounted product UPC</option>
                       <?php
 
-                        $sql = "SELECT * FROM discount";
+                        $sql = "SELECT * FROM Discount";
                         $result = mysqli_query($conn, $sql);
                         $datas = array();
 
