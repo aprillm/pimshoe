@@ -67,7 +67,7 @@ include_once 'dbconn.php';
 
   </div>
   <div class="container text-center mt-5">
-    <a href="AdminUser.html" class="btn btn-primary">
+    <a href="AdminUser.php" class="btn btn-primary">
       User Settings
     </a>
   </div>
