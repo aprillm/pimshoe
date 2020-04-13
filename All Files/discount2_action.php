@@ -45,7 +45,7 @@ $sql = "UPDATE Discount SET discountIsActive = '$Active', discountPrice= '$price
           </div>
 
           <div class="container text-center mt-5" style="margin-bottom:0">
-            <h2>Product <?php echo $_SESSION["upc"];?> discount was updated successfully</h2>
+            <h2>Product <?php echo $_SESSION["discupc"];?> discount was updated successfully</h2>
             <h2>New price is: $<?php echo "$price" ?></h2>
             <h2>This discount is <?php
             if($Active){
