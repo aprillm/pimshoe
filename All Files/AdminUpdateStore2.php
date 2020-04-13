@@ -155,7 +155,7 @@ include_once 'dbconn.php';
       </div>
       <div class="col-sm-2">
         <label for="inputZip">Zipcode</label>
-        <input type="text" name="editzip" class="form-control" id="inputZip" value="<?php
+        <input type="text" maxlength="5" pattern="^[0-9]{5}" oninvalid="setCustomValidity('Zipcode must be 5 digits')" onchange="try{setCustomValidity('')}catch(e){}" name="editzip" class="form-control" id="inputZip" value="<?php
         $sql = "SELECT zip FROM Store WHERE storeID='$storeID'";
 
         $query =mysqli_query($conn,$sql);
