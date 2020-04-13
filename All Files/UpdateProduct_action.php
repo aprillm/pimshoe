@@ -30,7 +30,13 @@ $Gender = $_POST['editgender'];
 $Name = $_POST['editname'];
 $Color = $_POST['editcolor'];
 $Price = $_POST['editprice'];
-$Active = $_POST['active'];
+    
+if( empty($_POST['active'])){
+  $Active = '0';
+} else{
+  $Active = '1';
+}
+    
 $sql = "UPDATE Product SET productName='$Name', productBrand='$Brand', productSize='$Size', productGender='$Gender', productColor='$Color', productPrice='$Price', productisActive='$Active' WHERE upc ='$UPC'";
 
 if (mysqli_query($conn, $sql)) {
