@@ -28,6 +28,7 @@ $Email = $_POST['empmail'];
 $Password = sha1($_POST['emppassword']);
 $Fname = $_POST['empname'];
 $Lname = $_POST['emplname'];
+$Datetime = date('Y-m-d H:i:s');
 
 if( empty($_POST['AdminCheck'])){
   $Admin = '0';
@@ -36,7 +37,7 @@ if( empty($_POST['AdminCheck'])){
 }
 
 
-$sql = "INSERT INTO User (userID, email, passhash, f_name, l_name, isActive, isAdmin, created_at) VALUES ('$UserID', '$Email', '$Password', '$Fname', '$Lname', '1', '$Admin', '2020-02-23 11:27:04')";
+$sql = "INSERT INTO User (userID, email, passhash, f_name, l_name, isActive, isAdmin, created_at) VALUES ('$UserID', '$Email', '$Password', '$Fname', '$Lname', '1', '$Admin', '$Datetime')";
 
 
 if (mysqli_query($conn, $sql)) {
