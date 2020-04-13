@@ -35,7 +35,7 @@ include_once 'dbconn.php';
     <input type="email" name="newmail" class="form-control" id="inputemail" value =
     <?php
     $userid = $_SESSION["username"];
-    $sql = "SELECT email FROM user WHERE userID='$userid'";
+    $sql = "SELECT email FROM User WHERE userID='$userid'";
 
     $query =mysqli_query($conn,$sql);
     while($row = mysqli_fetch_array($query)) {
