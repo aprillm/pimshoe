@@ -44,7 +44,7 @@ if (mysqli_query($conn, $sql)) {
         </div>
 
         <div class="container text-center mt-5">
-          <a href="AdminUpdateStore.php" class="btn btn-primary">Back to update product</a>
+          <a href="AdminUpdateStore.php" class="btn btn-primary">Back to update store</a>
         </div>
     <?php
 } else {
