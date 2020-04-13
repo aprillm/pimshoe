@@ -10,10 +10,10 @@
   <body>
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "pwdpwd";
-$dbname = "pimshoe";
+$servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+$username = "administrator";
+$password = "youdiedpimshoe";
+$dbname = "PIMSHOE";
 
 
 // Create connection
@@ -42,7 +42,7 @@ if( empty($_POST["updateempisactive"])){
   $Active = '1';
 }
 
-$sql = "UPDATE user SET email='$Email', passhash='$Password', f_name='$First', l_name='$Last', isActive='$Active', isAdmin='$Admin', created_at= '$datetime' WHERE userID ='$ID'";
+$sql = "UPDATE User SET email='$Email', passhash='$Password', f_name='$First', l_name='$Last', isActive='$Active', isAdmin='$Admin', created_at= '$datetime' WHERE userID ='$ID'";
 
 if (mysqli_query($conn, $sql)) {
     ?>
