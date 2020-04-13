@@ -25,7 +25,7 @@ if (!$conn) {
 }
 
 
-$upc = $_SESSION["upc"];
+$upc = $_SESSION["discupc"];
 $origional = $_SESSION["price"];
 $discount = $_POST['discount'];
 $price = round($origional - ($origional*$discount),2);
