@@ -10,10 +10,10 @@
   <body>
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "pwdpwd";
-$dbname = "pimshoe";
+$servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+$username = "administrator";
+$password = "youdiedpimshoe";
+$dbname = "PIMSHOE";
 
 
 // Create connection
@@ -28,11 +28,11 @@ $newpass = $_POST['newpass'];
 $newmail = $_POST['newmail'];
 
 if(empty($newpass)){
-$sql = "UPDATE user SET email='$newmail' WHERE userID='$creduser'";
+$sql = "UPDATE User SET email='$newmail' WHERE userID='$creduser'";
 }
 else{
   $newpass = sha1($_POST['newpass']);
-  $sql = "UPDATE user SET email='$newmail', passhash = '$newpass' WHERE userID='$creduser'";
+  $sql = "UPDATE User SET email='$newmail', passhash = '$newpass' WHERE userID='$creduser'";
 }
 
 if (mysqli_query($conn, $sql)) {
