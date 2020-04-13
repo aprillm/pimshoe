@@ -42,7 +42,7 @@ include_once 'dbconn.php';
         </div>
         <div class="col-sm-2">
           <label for="inputSize">Size</label>
-          <input type="text" name="editsize" class="form-control" id="inputSize" value=
+          <input type="number" name="editsize" class="form-control" id="inputSize" value=
           <?php
           $upc = $_SESSION["upc"];
           $sql = "SELECT productSize FROM Product WHERE upc='$upc'";
