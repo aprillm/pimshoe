@@ -11,10 +11,10 @@
 <?php
 
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "pwdpwd";
-$dbname = "pimshoe";
+$servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+$username = "administrator";
+$password = "youdiedpimshoe";
+$dbname = "PIMSHOE";
 
 
 // Create connection
@@ -36,7 +36,7 @@ if( empty($_POST['activeDiscount'])){
   $Active = '1';
 }
 
-$sql = "UPDATE discount SET discountIsActive = '$Active', discountPrice= '$price' WHERE upc = '$upc'";
+$sql = "UPDATE Discount SET discountIsActive = '$Active', discountPrice= '$price' WHERE upc = '$upc'";
 
   if (mysqli_query($conn, $sql)) {
       ?>
