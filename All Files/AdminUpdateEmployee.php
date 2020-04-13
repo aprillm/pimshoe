@@ -31,7 +31,7 @@ include_once 'dbconn.php';
                   <option value="">Employee</option>
                       <?php
 
-                        $sql = "SELECT * FROM user";
+                        $sql = "SELECT * FROM User";
                         $result = mysqli_query($conn, $sql);
                         $datas = array();
 
