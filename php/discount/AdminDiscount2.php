@@ -31,7 +31,7 @@ include_once 'dbconn.php';
           <h4>Base Price:
             <?php
             $upc = $_SESSION["upc"];
-            $sql = "SELECT productPrice FROM product WHERE upc='$upc'";
+            $sql = "SELECT productPrice FROM Product WHERE upc='$upc'";
 
             $query =mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($query)) {
