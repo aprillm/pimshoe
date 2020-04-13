@@ -31,7 +31,7 @@ include_once 'dbconn.php';
           <h4>Base Price:
             <?php
             $upc = $_SESSION["discupc"];
-            $sql = "SELECT productPrice FROM product WHERE upc='$upc'";
+            $sql = "SELECT productPrice FROM Product WHERE upc='$upc'";
 
             $query =mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($query)) {
@@ -42,7 +42,7 @@ include_once 'dbconn.php';
           </h4>
           <h4>Current Discounted Price:<?php
             $upc = $_SESSION["discupc"];
-            $sql = "SELECT discountPrice FROM discount WHERE upc='$upc'";
+            $sql = "SELECT discountPrice FROM Discount WHERE upc='$upc'";
 
             $query =mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($query)) {
@@ -76,7 +76,7 @@ include_once 'dbconn.php';
           <input type="checkbox" name="activeDiscount" class="custom-control-input" id="customSwitch1"
           <?php
           $upc = $_SESSION["discupc"];
-          $sql = "SELECT discountIsActive FROM discount WHERE upc='$upc'";
+          $sql = "SELECT discountIsActive FROM Discount WHERE upc='$upc'";
 
           $query =mysqli_query($conn,$sql);
           while($row = mysqli_fetch_array($query)) {
