@@ -1,9 +1,9 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "pwdpwd";
-$dbname = "pimshoe";
+$servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
+$username = "administrator";
+$password = "youdiedpimshoe";
+$dbname = "PIMSHOE";
 
 
 // Create connection
@@ -18,7 +18,7 @@ $credu = $_SESSION["username"];
 $credp = sha1($_POST['credpsw']);
 
 
-$query = mysqli_query($mysqli,"SELECT userID FROM user WHERE userID = '$credu' AND passhash = '$credp' AND isActive");
+$query = mysqli_query($mysqli,"SELECT userID FROM User WHERE userID = '$credu' AND passhash = '$credp' AND isActive");
 $total = mysqli_num_rows($query);
 
 
