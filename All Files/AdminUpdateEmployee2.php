@@ -39,7 +39,7 @@ include_once 'dbconn.php';
         <input type="text" name="updateempfname" class="form-control" id="inputEmpName" value =
         <?php
         $emp = $_SESSION["emp"];
-        $sql = "SELECT f_name FROM user WHERE userID='$emp'";
+        $sql = "SELECT f_name FROM User WHERE userID='$emp'";
 
         $query =mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($query)) {
@@ -53,7 +53,7 @@ include_once 'dbconn.php';
         <input type="text" name="updateemplname" class="form-control" id="inputEmpLName" value=
         <?php
         $emp = $_SESSION["emp"];
-        $sql = "SELECT l_name FROM user WHERE userID='$emp'";
+        $sql = "SELECT l_name FROM User WHERE userID='$emp'";
 
         $query =mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($query)) {
@@ -67,7 +67,7 @@ include_once 'dbconn.php';
         <input type="email" name="updateempemail" class="form-control" id="inputEmpEmail" value =
         <?php
         $emp = $_SESSION["emp"];
-        $sql = "SELECT email FROM user WHERE userID='$emp'";
+        $sql = "SELECT email FROM User WHERE userID='$emp'";
 
         $query =mysqli_query($conn,$sql);
         while($row = mysqli_fetch_array($query)) {
@@ -83,7 +83,7 @@ include_once 'dbconn.php';
            <input type="checkbox" class="custom-control-input" name="updateempisactive" id="customSwitch2"
            <?php
            $emp = $_SESSION["emp"];
-           $sql = "SELECT isActive FROM user WHERE userID='$emp'";
+           $sql = "SELECT isActive FROM User WHERE userID='$emp'";
 
            $query =mysqli_query($conn,$sql);
            while($row = mysqli_fetch_array($query)) {
@@ -109,7 +109,7 @@ include_once 'dbconn.php';
            <input type="checkbox" class="custom-control-input" name="updateisadmin" id="customSwitch3"
            <?php
            $emp = $_SESSION["emp"];
-           $sql = "SELECT isAdmin FROM user WHERE userID='$emp'";
+           $sql = "SELECT isAdmin FROM User WHERE userID='$emp'";
 
            $query =mysqli_query($conn,$sql);
            while($row = mysqli_fetch_array($query)) {
