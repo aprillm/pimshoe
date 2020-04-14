@@ -47,7 +47,7 @@ populate the fields with test values
 
 ```
 After setting up RDS and EC2 as stated prior, change into the 
-/var/www/html directory to upload code. Using you choice of 
+/var/www/html directory on your EC2 to upload code. Using you choice of 
 upload method, populate the server with all the files that 
 are provided. 
 ```
