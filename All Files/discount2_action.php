@@ -9,6 +9,7 @@
   </head>
   <body>
 <?php
+error_reporting(0);
 
 session_start();
 $servername = "cpsc445-capstone.cah4eqmlcf2h.us-east-1.rds.amazonaws.com";
