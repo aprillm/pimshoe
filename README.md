@@ -20,16 +20,18 @@ running and properly alter aspects of this program.
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+1. Only continue if you have properly set up AWS and RDS instances:
 
 ```
-Give the example
+If you have completed the set up of RDS and EC2, continue to step 2
 ```
 
-And repeat
+2. EC2
 
 ```
-until finished
+For this program to run correctly on your EC2 instance, ensure 
+that you have installed apache and php on your EC2. PIMSHOE will _NOT_ run without 
+these two things installed. 
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
