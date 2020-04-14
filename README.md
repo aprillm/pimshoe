@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Give examples
+You will require an AWS EC2 instance, a AWS RDS instance, and MYSQL Workbench to properly get this program running and properly alter aspects of this program.
 ```
 
 ### Installing
