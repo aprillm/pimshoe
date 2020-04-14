@@ -107,7 +107,7 @@ include_once 'dbconn.php';
           </div>
           <div class="col-sm-4">
             <label for="inputPrice">Price</label>
-            <input type="text" name="editprice" class="form-control" id="inputPrice" value=
+            <input type="number" min="0" max="300" step = ".01" name="editprice" class="form-control" id="inputPrice" value=
             <?php
             $upc = $_SESSION["upc"];
             $sql = "SELECT productPrice FROM Product WHERE upc='$upc'";
