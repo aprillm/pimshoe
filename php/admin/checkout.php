@@ -1,10 +1,11 @@
-<?php session_start();
+<?php
+session_start();
 
 //is user logged in?
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-	header("location: login.php");
+	header("location: http://3.211.215.236/index.php");
 	exit;
-}
+include 'config.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,38 +26,41 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container text-center mt-5" style="margin-bottom:0">
       <h2>Check Out</h2>
     </div>
-	<form>
-	<div class="container text-center mt-5 col-sm-2" style="margin-bottom:0">
-		<div class="form-group">
+	<form action="checkout.php" method="post">
+	<div class="container text-center mt-5 col-sm-2" style="margin-bottom:0" >
 			<label for="enterupc">Enter the Product UPC</label>
-			<input type="text" class="form-control" maxlength="12" id="enterupc" pattern="^[0-9]{12}" placeholder="123456789012">
-		</div>
+			<input type="text" class="form-control" maxlength="12" id="enterupc" pattern="^[0-9]{12}" placeholder="123456789012" />
+			<input type="submit" class="btn btn-primary" value=">" form="in" value="CheckOut" />
 	</div>
 	</form>
 	<div class="container text-center mt-5" style="margin-bottom:0">
-		<form>
-		<table class="table">
-			<tr>
-				<th>UPC</th>
-				<th>Style</th>
-				<th>Color</th>
-				<th>Size</th>
-				<th>Quanitiy</th>
-			</tr>
-			<tr>
-				<td>123456789012</td>
-				<td>Captain</td>
-				<td>Blue</td>
-				<td>39</td>
-				<td>
-					<label for="quantity"></label>
-					<input type="number" id="quantity" name="quantity" min="0" max="99" value="1">
-				</td>
-			</tr>
-		</table>
-		<input type="submit" class="btn btn-primary" value="submit">
-		</form>
-	</div>	
+	<?php
+
+	if(isset($_POST['CheckOut'])){
+		$upc = $_POST['upc'];
+		$storeID = $_SESSION['store'];
+		$prod = mysqli_query($conn, "Select * FROM Product WHERE upc = $upc");
+		$qtyCheck = mysqli_query($conn, "Select qty from quantityAvailable where storeID=$storeID and upc=$upc");
+		if($qty >0){
+		if($upc != ''||$storeID !=''){
+			$query = mysqli_query($conn, "UPDATE quantityAvailable SET qty = qty - 1 WHERE upc = $upc AND storeID = $storeID");
+			echo('One '.$prod[productName].'has been added to the database. Details below. <br>
+				UPC:'.$upc.'<br>
+				Name:'.$prod[productName].'<br>
+				Brand:'.$prod[productBrand].'<br>
+				Size:'.$prod[productSize].'<br>
+				Gender:'.$prod[productGender].'<br>
+				Color:'.$prod[productColor].'<br>
+			');
+		}else{
+			echo("An error has occurred. Please ensure the UPC is correct and you are logged in to the correct store. If this is  a new item, please first create the item and use check in should you receive any more items. If this persists, please contact your system administrator."); //An ErRoR hAs OcCuRrEd
+		}}
+		else{
+			echo("There aren't enough items in stock to check that out!");
+		}
+	}
+	?>
+	</div>
 	
   <div class="container text-center mt-5">
     <a href="landing.php" class="btn btn-primary">
