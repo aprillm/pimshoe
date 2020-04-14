@@ -90,7 +90,7 @@ Add additional notes about how to deploy this on a live system
 ## Authors
 
 * **Tyler Hiu** - *Initial work*
-* **Joe Kriviskiu** - *Initial work*
+* **Joe Kriviski** - *Initial work*
 * **April Morrison** - *Initial work*
 
 
