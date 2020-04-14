@@ -37,7 +37,7 @@ include_once 'dbconn.php';
       </div>
       <div class="col-sm-2">
         <label for="inputSize">Size</label>
-        <input type="number" name="size" class="form-control" id="inputSize" required>
+        <input type="number" step=".01" name="size" class="form-control" id="inputSize" required>
       </div>
       <div class="col-sm-2">
         <label for="inputGender">Gender</label>
