@@ -13,7 +13,9 @@ What things you need to install the software and how to install them
 ```
 You will require an AWS EC2 instance, a AWS RDS instance, 
 and MYSQL Workbench to properly get this program 
-running and properly alter aspects of this program.
+running and properly alter aspects of this program. Ensure 
+that the RDS and EC2 are able to connect with each other and that 
+you are able to connect to the RDS via MYSQL Workbench. 
 ```
 
 ### Installing
@@ -30,7 +32,7 @@ If you have completed the set up of RDS and EC2, continue to step 2
 
 ```
 For this program to run correctly on your EC2 instance, ensure 
-that you have installed apache and php on your EC2. PIMSHOE will _NOT_ run without 
+that you have installed apache and php on your EC2. PIMSHOE will NOT run without 
 these two things installed. 
 ```
 
