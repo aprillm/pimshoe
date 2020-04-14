@@ -32,7 +32,7 @@ include_once 'dbconn.php';
       </div>
       <div class="form-group col-sm-4">
         <label for="inputPhone">Phone</label>
-        <input type="tel" name="phone" class="form-control" id="inputPhone" required>
+        <input type="tel" pattern="^[0-9]{10}" oninvalid="setCustomValidity('Please input in 1234567890 format')" onchange="try{setCustomValidity('')}catch(e){}" name="phone" class="form-control" id="inputPhone" required>
       </div>
       </div>
 
@@ -104,7 +104,7 @@ include_once 'dbconn.php';
       </div>
       <div class="col-sm-2">
         <label for="inputZip">Zipcode</label>
-        <input type="text" maxlength="5" pattern="^[0-9]{5}" oninvalid="setCustomValidity('Zipcode must be 5 digits')" onchange="try{setCustomValidity('')}catch(e){}" name="zip" class="form-control" id="inputZip" required>
+        <input type="tel" maxlength="5" pattern="^[0-9]{5}" oninvalid="setCustomValidity('Zipcode must be 5 digits')" onchange="try{setCustomValidity('')}catch(e){}" name="zip" class="form-control" id="inputZip" required>
       </div>
       </div>
       </div>
