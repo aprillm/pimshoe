@@ -32,15 +32,31 @@ If you have completed the set up of RDS and EC2, continue to step 2
 
 ```
 For this program to run correctly on your EC2 instance, ensure 
-that you have installed apache and php on your EC2. PIMSHOE will NOT run without 
-these two things installed. 
+that you have installed apache and php on your EC2. PIMSHOE 
+will NOT run without these two things installed. 
+```
+
+3. RDS
+
+```
+Using the ERD, set up your database using MYSQL Workbench and 
+populate the fields with test values
+```
+
+4. File Upload
+
+```
+After setting up RDS and EC2 as stated prior, change into the 
+/var/www/html directory to upload code. Using you choice of 
+upload method, populate the server with all the files that 
+are provided. 
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+To test system, go to your EC2's IP address, the index page should come up. 
 
 ### Break down into end to end tests
 
