@@ -54,7 +54,7 @@ include_once 'dbconn.php';
           ?>
           required>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <label for="inputGender">Gender</label>
           <select class="form-control" name="editgender" id="inputGender" required>
               <option value = "M">Male</option>
