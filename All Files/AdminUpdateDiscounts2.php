@@ -68,6 +68,21 @@ include_once 'dbconn.php';
                 <option value = ".40">40%</option>
                 <option value = ".45">45%</option>
                 <option value = ".5">50%</option>
+                <option disabled="disabled">----</option>
+                <option value = "<?php
+                $basePrice = $_SESSION["price"];
+                $discPrice = $_SESSION["discprice"];
+                $currentDisc = (1-(round($discPrice/$basePrice,2)));
+                echo $currentDisc;
+                 ?>
+                " selected>
+                  <?php
+                    $basePrice = $_SESSION["price"];
+                    $discPrice = $_SESSION["discprice"];
+                    $currentDisc = 100*(1-(round($discPrice/$basePrice,2)));
+                    echo $currentDisc . "%";
+                  ?>
+                </option>
            </select>
           </div>
         </div>
