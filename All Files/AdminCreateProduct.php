@@ -31,21 +31,20 @@ include_once 'dbconn.php';
           <input type="text" maxlength="12" minlength="12" pattern="^[0-9]{12}" oninvalid="setCustomValidity('UPC must be only numbers and 12 digits')" onchange="try{setCustomValidity('')}catch(e){}" name="upc" class="form-control" id="inputUPC" required>
       </div>
 
-      <div class="col-sm-4">
+       <div class="col-sm-4">
         <label for="inputBrand">Brand</label>
         <input type="text" name="brand" class="form-control" id="inputBrand" required>
       </div>
-      <div class="col-sm-1"></div>
       <div class="col-sm-2">
         <label for="inputSize">Size</label>
         <input type="number" name="size" class="form-control" id="inputSize" required>
       </div>
-      <div class="col-sm-1">
+      <div class="col-sm-2">
         <label for="inputGender">Gender</label>
         <select class="form-control" name="gender" id="inputGender" required>
-            <option>M</option>
-            <option>F</option>
-            <option>K</option>
+            <option value ="M">Male</option>
+            <option value ="F">Female</option>
+            <option value ="K">Kids</option>
        </select>
       </div>
       </div>
