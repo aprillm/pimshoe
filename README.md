@@ -81,10 +81,10 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Bootstrap](http://www.dropwizard.io/1.0.2/docs/) - CSS for HTML code
-* [PHP] (https://www.php.net/) - Used for scripting
+* [PHP](https://www.php.net/) - Used for scripting
 * [HTML](https://html.com/) - Used for page creation
 * [MYSQL Workbench](https://www.mysql.com/products/workbench/) - Used for database modification and population
-* [Amazon Webservices] (https://aws.amazon.com/)- Used to set up RDS and EC2
+* [Amazon Webservices](https://aws.amazon.com/)- Used to set up RDS and EC2
 
 ## Contributing
 
