@@ -40,11 +40,17 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control">
-                            <label for="name" class="">Your name</label>
+                            <input type="text" id="firstname" name="firstname" class="form-control">
+                            <label for="first_name" class="">First Name</label>
                         </div>
                     </div>
                     <!--Grid column-->
+			 <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="lastname" name="lastname" class="form-control">
+                            <label for="last_name" class="">Last Name</label>
+                        </div>
+                    </div>
 
                     <!--Grid column-->
                     <div class="col-md-6">
@@ -62,8 +68,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
-                            <input type="text" id="subject" name="subject" class="form-control">
-                            <label for="subject" class="">Subject</label>
+                            <input type="text" id="telephone" name="telephone" class="form-control">
+                            <label for="telephone" class="">Phone Number</label>
                         </div>
                     </div>
                 </div>
@@ -77,7 +83,7 @@
 
                         <div class="md-form">
                             <textarea type="text" id="message" name="message" rows="8" class="form-control md-textarea"></textarea>
-                            <label for="message">Your message</label>
+                            <label for="comments">Your message</label>
                         </div>
 
                     </div>
