@@ -74,8 +74,13 @@
  </td>
 </tr>
 <tr>
+	<div class="text-right text-md-right">
+                
+                 <a href="home.php" class="btn btn-danger">
  <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">   <a href="http://www.freecontactform.com/email_form.php">Email Form</a>
+  <input type="submit" value="Submit"> 
+		</a>
+	</div>
  </td>
 </tr>
 </table>
