@@ -78,7 +78,7 @@
 </form>
 
             <div class="text-right text-md-right">
-                <a class="btn btn-danger text-white" onclick="document.getElementById('contact-form').submit();">Send</a>
+                <input type ="submit" value = "Submit">Send</a>
                  <a href="home.php" class="btn btn-danger">
       Back to home
     </a>
