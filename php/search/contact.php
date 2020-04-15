@@ -88,7 +88,7 @@
 
             <div class="text-right text-md-right">
                 <a class="btn btn-danger text-white" onclick="document.getElementById('contact-form').submit();">Send</a>
-                 <a href="contact.php" class="btn btn-danger">
+                 <a href="home.php" class="btn btn-danger">
       Back to home
     </a>
             </div>
