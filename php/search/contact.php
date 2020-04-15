@@ -73,12 +73,15 @@
   <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
  </td>
 </tr>
-
+<tr>
+ <td colspan="2" style="text-align:center">
+  <input type="submit" value="Submit">   <a href="http://www.freecontactform.com/email_form.php">Email Form</a>
+ </td>
+</tr>
 </table>
 </form>
-
             <div class="text-right text-md-right">
-                <input type ="submit" value = "Submit">Send</a>
+                
                  <a href="home.php" class="btn btn-danger">
       Back to home
     </a>
