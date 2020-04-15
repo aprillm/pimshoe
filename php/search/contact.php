@@ -74,13 +74,11 @@
  </td>
 </tr>
 <tr>
-	<div class="text-right text-md-right">
-                
-                 <a href="home.php" class="btn btn-danger">
- <td colspan="2" style="text-align:center">
+	
+ <td colspan="2" class="btn btn-danger">
   <input type="submit" value="Submit"> 
 		</a>
-	</div>
+	
  </td>
 </tr>
 </table>
