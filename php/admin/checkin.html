@@ -1,4 +1,6 @@
-
+<?php
+include_once 'dbconn.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,7 +28,28 @@
 	</div>
 	</form>
 	<div class="container text-center mt-5" style="margin-bottom:0">
+	<?php
 
+	if(isset($_POST['CheckIn'])){
+		$upc = $_POST['upc'];
+		$storeID = $_SESSION['store'];
+		$qty = 1;
+		$prod = mysqli_query($conn, "Select * FROM Product WHERE upc = $upc");
+		if($upc != ''||$storeID !=''){
+			$query = mysqli_query($conn, "UPDATE quantityAvailable SET qty = qty + 1 WHERE upc = $upc AND storeID = $storeID");
+			echo('One '.$prod[productName].'has been added to the database. Details below. <br>
+				UPC:'.$upc.'<br>
+				Name:'.$prod[productName].'<br>
+				Brand:'.$prod[productBrand].'<br>
+				Size:'.$prod[productSize].'<br>
+				Gender:'.$prod[productGender].'<br>
+				Color:'.$prod[productColor].'<br>
+			');
+		}else{
+			echo("An error has occurred. Please ensure the UPC is correct and you are logged in to the correct store. If this is  a new item, please first create the item and use check in should you receive any more items. If this persists, please contact your system administrator."); //An ErRoR hAs OcCuRrEd
+		}
+	}
+	?>
 	</div>
 	
   <div class="container text-center mt-5">
