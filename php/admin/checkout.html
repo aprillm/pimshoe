@@ -1,12 +1,4 @@
-<?php
-session_start();
 
-//is user logged in?
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-	header("location: http://3.211.215.236/index.php");
-	exit;
-include 'config.php';
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -34,32 +26,7 @@ include 'config.php';
 	</div>
 	</form>
 	<div class="container text-center mt-5" style="margin-bottom:0">
-	<?php
-
-	if(isset($_POST['CheckOut'])){
-		$upc = $_POST['upc'];
-		$storeID = $_SESSION['store'];
-		$prod = mysqli_query($conn, "Select * FROM Product WHERE upc = $upc");
-		$qtyCheck = mysqli_query($conn, "Select qty from quantityAvailable where storeID=$storeID and upc=$upc");
-		if($qty >0){
-		if($upc != ''||$storeID !=''){
-			$query = mysqli_query($conn, "UPDATE quantityAvailable SET qty = qty - 1 WHERE upc = $upc AND storeID = $storeID");
-			echo('One '.$prod[productName].'has been added to the database. Details below. <br>
-				UPC:'.$upc.'<br>
-				Name:'.$prod[productName].'<br>
-				Brand:'.$prod[productBrand].'<br>
-				Size:'.$prod[productSize].'<br>
-				Gender:'.$prod[productGender].'<br>
-				Color:'.$prod[productColor].'<br>
-			');
-		}else{
-			echo("An error has occurred. Please ensure the UPC is correct and you are logged in to the correct store. If this is  a new item, please first create the item and use check in should you receive any more items. If this persists, please contact your system administrator."); //An ErRoR hAs OcCuRrEd
-		}}
-		else{
-			echo("There aren't enough items in stock to check that out!");
-		}
-	}
-	?>
+	
 	</div>
 	
   <div class="container text-center mt-5">
