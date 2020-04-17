@@ -56,27 +56,8 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
-To test system, go to your EC2's IP address, the index page should come up. 
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+To test system, go to your EC2's IP address, the index page should come up. To test if functionality works, 
+use the data you populated the database with for the search/login fields.
 
 ## Built With
 
@@ -95,8 +76,3 @@ Add additional notes about how to deploy this on a live system
 
 
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
