@@ -1,3 +1,5 @@
+-- MySQL Workbench Forward Engineering
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -14,6 +16,22 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `PIMSHOE` DEFAULT CHARACTER SET latin1 ;
 USE `PIMSHOE` ;
+
+-- -----------------------------------------------------
+-- Table `PIMSHOE`.`Store`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `PIMSHOE`.`Store` (
+  `storeID` INT(2) NOT NULL,
+  `storeName` VARCHAR(45) NOT NULL,
+  `telephone` BIGINT(11) NOT NULL,
+  `streetAddress` VARCHAR(255) NOT NULL,
+  `city` VARCHAR(15) NOT NULL,
+  `state` CHAR(2) NOT NULL,
+  `zip` INT(5) NOT NULL,
+  PRIMARY KEY (`storeID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
 
 -- -----------------------------------------------------
 -- Table `PIMSHOE`.`Product`
@@ -33,39 +51,64 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `PIMSHOE`.`Store`
+-- Table `PIMSHOE`.`Cart_in`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `PIMSHOE`.`Store` (
+CREATE TABLE IF NOT EXISTS `PIMSHOE`.`Cart_in` (
   `storeID` INT(2) NOT NULL,
-  `storeName` VARCHAR(45) NOT NULL,
-  `telephone` INT(11) NOT NULL,
-  `streetAddress` VARCHAR(255) NOT NULL,
-  `city` VARCHAR(15) NOT NULL,
-  `state` CHAR(2) NOT NULL,
-  `zip` INT(5) NOT NULL,
-  PRIMARY KEY (`storeID`))
+  `UPC` BIGINT(12) NOT NULL,
+  `qty` INT(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`storeID`, `UPC`),
+  INDEX `UPC_idx` (`UPC` ASC) VISIBLE,
+  CONSTRAINT `StoreID`
+    FOREIGN KEY (`storeID`)
+    REFERENCES `PIMSHOE`.`Store` (`storeID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `UPC`
+    FOREIGN KEY (`UPC`)
+    REFERENCES `PIMSHOE`.`Product` (`upc`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `PIMSHOE`.`Cart_out`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `PIMSHOE`.`Cart_out` (
+  `outStoreID` INT(2) NOT NULL,
+  `outUPC` BIGINT(12) NOT NULL,
+  `outqty` INT(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`outStoreID`, `outUPC`),
+  INDEX `UPC_idx` (`outUPC` ASC) VISIBLE,
+  CONSTRAINT `outStoreID`
+    FOREIGN KEY (`outStoreID`)
+    REFERENCES `PIMSHOE`.`Store` (`storeID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `outUPC`
+    FOREIGN KEY (`outUPC`)
+    REFERENCES `PIMSHOE`.`Product` (`upc`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1
+COLLATE = latin1_bin;
 
 
 -- -----------------------------------------------------
 -- Table `PIMSHOE`.`Discount`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `PIMSHOE`.`Discount` (
-  `storeID` INT(2) NOT NULL,
   `upc` BIGINT(12) NOT NULL,
   `discountIsActive` TINYINT(4) NOT NULL DEFAULT '0',
   `discountPrice` DECIMAL(5,2) NULL DEFAULT NULL,
-  PRIMARY KEY (`storeID`, `upc`),
+  PRIMARY KEY (`upc`),
   INDEX `UPCdisc_idx` (`upc` ASC) VISIBLE,
   CONSTRAINT `UPCdisc`
     FOREIGN KEY (`upc`)
     REFERENCES `PIMSHOE`.`Product` (`upc`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `storeIDdisc`
-    FOREIGN KEY (`storeID`)
-    REFERENCES `PIMSHOE`.`Store` (`storeID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
