@@ -39,8 +39,7 @@ will NOT run without these two things installed.
 3. RDS
 
 ```
-Using the ERD, set up your database using MYSQL Workbench and 
-populate the fields with test values
+Using the provided SQL code, create the database using MYSQL workbench in your RDS
 ```
 
 4. File Upload
@@ -48,8 +47,8 @@ populate the fields with test values
 ```
 After setting up RDS and EC2 as stated prior, change into the 
 /var/www/html directory on your EC2 to upload code. Using you choice of 
-upload method, populate the server with all the files that 
-are provided. 
+upload method, populate the server with all the files that  
+are provided in the PHP folder ON A SINGLE SERVER without seperating the files into different folders. 
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
