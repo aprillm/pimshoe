@@ -39,7 +39,8 @@ will NOT run without these two things installed.
 3. RDS
 
 ```
-Using the provided SQL code, create the database using MYSQL workbench in your RDS
+Using the provided SQL code, create the database using MYSQL workbench in your RDS. You
+Will need to populate the database with you own test values. 
 ```
 
 4. File Upload
