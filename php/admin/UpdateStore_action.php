@@ -53,7 +53,7 @@ if (mysqli_query($conn, $sql)) {
       <h1>PIMSHOE Admin</h1>
     </div>
     <div class="container text-center mt-5" style="margin-bottom:0">
-      <h2>A store with that ID already exists. Change the store ID or check with system administrator</h2><br>
+      <h2>Store was not updated, please check with your system administrator</h2><br>
     </div>
     <div class="container text-center mt-5">
       <a href="AdminUpdateStore.php" class="btn btn-primary">Back to update store</a>
