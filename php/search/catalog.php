@@ -1,5 +1,5 @@
 <?php
-	include 'config.php';
+	include 'dbconn.php';
 	
 	$sql = "SELECT * FROM Product";
 	$result = mysqli_query($conn, $sql) or die("You killed it.");
