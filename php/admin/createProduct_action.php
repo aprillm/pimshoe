@@ -58,7 +58,7 @@ if (mysqli_query($conn, $sql)) {
       <h1>PIMSHOE Admin</h1>
     </div>
     <div class="container text-center mt-5" style="margin-bottom:0">
-      <h2>Product was not created, check with system administrator</h2><br>
+      <h2>A product with that UPC already exits. Enter new UPC or check with your system administrator</h2><br>
     </div>
     <div class="container text-center mt-5">
       <a href="AdminCreateProduct.php" class="btn btn-primary">Back to Create Product</a>
