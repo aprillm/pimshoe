@@ -60,7 +60,7 @@ if (mysqli_query($conn, $sql)) {
       <h1>PIMSHOE Admin</h1>
     </div>
     <div class="container text-center mt-5" style="margin-bottom:0">
-      <h2>Employee was not created, check with system administrator</h2><br>
+      <h2>An employee with the same ID exists. Change the ID number or check with your system administrator.</h2><br>
     </div>
     <div class="container text-center mt-5">
       <a href="AdminCreateEmployee.php" class="btn btn-primary">Back to Create Employee</a>
