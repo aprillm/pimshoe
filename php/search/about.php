@@ -20,7 +20,7 @@
     <!--Section heading-->
     <h2 class="h1-responsive font-weight-bold text-center my-4">About Us</h2>
     <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5"><IMG src="shoe.gif" alt="A pair of shoes" width=120px height=auto></p><p>We're a shoe store based in Newport News. Our founders Tyler Hiu, Joe Kriviski and April Morrison
+    <p class="text-center w-responsive mx-auto mb-5">We're a shoe store based in Newport News. Our founders Tyler Hiu, Joe Kriviski and April Morrison
     are committed to helping you find the best fit for your feet! Our extensive inventory of shoe products and shoe accessories 
     has something for you! Not sure about what you want? Our experienced and thoughtful staff will help you choose the product
     that is right for you!</p>
