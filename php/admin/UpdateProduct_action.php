@@ -59,7 +59,7 @@ if (mysqli_query($conn, $sql)) {
       <h1>PIMSHOE Admin</h1>
     </div>
     <div class="container text-center mt-5" style="margin-bottom:0">
-      <h2>A product with that UPC already exits. Enter new UPC or check with your system administrator</h2><br>
+      <h2>Product was not updated, check with your system administrator</h2><br>
     </div>
     <div class="container text-center mt-5">
       <a href="AdminUpdateProduct.php" class="btn btn-primary">Back to update product</a>
