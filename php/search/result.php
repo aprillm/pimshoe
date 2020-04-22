@@ -1,5 +1,5 @@
 <?php
-	include 'config.php';
+	include 'dbconn.php';
 	
 	if(isset($_POST['search'])){
 		$searchq = $_POST['search'];
